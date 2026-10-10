@@ -323,3 +323,37 @@
   }
   .intro-foot .hero-roles{text-align:right}
 }
+
+/* About contact/document links: one horizontal group, with the same subtle
+   dotted underline and regular weight as the hero navigation links. */
+.about-details .doc-row{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:12px 23px;
+  margin:24px 0 0;
+}
+.about-details .doc-row a.arrow-link{
+  display:inline-block;
+  margin:0;
+  padding:0 0 3px;
+  font-size:12px;
+  font-weight:400;
+  color:#3f4946;
+  text-decoration-line:underline;
+  text-decoration-style:dotted;
+  text-decoration-color:#8e9b96;
+  text-decoration-thickness:1px;
+  text-underline-offset:5px;
+  transition:color .16s ease;
+}
+.about-details .doc-row a.arrow-link:hover,
+.about-details .doc-row a.arrow-link:focus-visible,
+.about-details .doc-row a.arrow-link:active{
+  font-weight:700;
+  color:#181a1a;
+  text-decoration-line:underline;
+  text-decoration-style:solid;
+  text-decoration-color:currentColor;
+  text-decoration-thickness:1px;
+}

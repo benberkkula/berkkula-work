@@ -8,7 +8,7 @@ const i18n={
     archiveEyebrow:'RECENT & EARLIER WORK',archiveTitle:'Recording & mixing archive',allRecordings:'Full discography ↗',
     videosTitle:'Selected works',videosIntro:'Three selected recent works. Videos open on YouTube.',
     datesTitle:'Upcoming dates',datesIntro:'Live schedule.',turkey:'Türkiye',international:'International',scheduledShows:'SCHEDULED PERFORMANCES',noConcerts:'New performance dates will be announced here.',
-    aboutTitle:'About',aboutLead:'Independent audio engineer working across live performance, studio recording and mixing since 2007.',aboutBody:'FOH and monitor engineering for tours and festivals. Studio recording and mixing from a private mix suite, with project sessions at various studios.',writeMe:'Email me ↗',
+    aboutTitle:'About',aboutLead:'Independent audio engineer working across live performance, studio recording and mixing since 2007.',aboutBody:'FOH and monitor engineering for tours and festivals. Studio recording and mixing from a private mix suite, with project sessions at various studios.',writeMe:'Get in touch ↗',
     loadSpotify:'Load Spotify player ↗',spotifyPreviewLabel:'SPOTIFY AUDIO',err:'Schedule temporarily unavailable. Please check again later.'
   },
   tr:{
@@ -20,7 +20,7 @@ const i18n={
     archiveEyebrow:'YENİ & ESKİ ÇALIŞMALAR',archiveTitle:'Kayıt ve miks arşivi',allRecordings:'Tüm diskografi ↗',
     videosTitle:'Seçili çalışmalar',videosIntro:'Yakın dönemden seçili üç çalışma. Videolar YouTube’da açılır.',
     datesTitle:'Yaklaşan konserler',datesIntro:'Konser takvimi.',turkey:'Türkiye',international:'Yurtdışı',scheduledShows:'PLANLANAN KONSERLER',noConcerts:'Yeni konser tarihleri burada yayınlanacak.',
-    aboutTitle:'Hakkında',aboutLead:'2007’den bu yana canlı ses, stüdyo kaydı ve miks alanlarında çalışan bağımsız ses mühendisi.',aboutBody:'Turneler ve festivaller için FOH ve monitör mühendisliği. Özel miks stüdyosunda kayıt ve miks; farklı stüdyolarda proje bazlı çalışmalar.',writeMe:'E-posta gönder ↗',
+    aboutTitle:'Hakkında',aboutLead:'2007’den bu yana canlı ses, stüdyo kaydı ve miks alanlarında çalışan bağımsız ses mühendisi.',aboutBody:'Turneler ve festivaller için FOH ve monitör mühendisliği. Özel miks stüdyosunda kayıt ve miks; farklı stüdyolarda proje bazlı çalışmalar.',writeMe:'İletişime geç ↗',
     loadSpotify:'Spotify oynatıcıyı aç ↗',spotifyPreviewLabel:'SPOTIFY SES',err:'Takvim geçici olarak yüklenemedi. Lütfen daha sonra tekrar deneyin.'
   }
 };
