@@ -173,10 +173,12 @@
   .featured-grid>article h3{min-height:0}
 }
 @media(max-width:650px){
-  .name-cloud{display:flex;flex-wrap:wrap;gap:7px 14px;align-items:baseline;line-height:1.8}
-  .name-cloud>span{display:inline-block;white-space:nowrap;max-width:100%}
+  .name-cloud{display:flex;flex-wrap:wrap;gap:7px 21px;align-items:baseline;line-height:1.8}
+  .name-cloud>span{position:relative;display:inline-block;white-space:nowrap;max-width:100%}
   .name-cloud>span a{white-space:nowrap}
   .name-cloud>span:not(:last-child)::after{content:none}
+  .name-cloud>span:not(:first-child)::before{content:"/";position:absolute;left:-13px;top:0;color:#b8bdb9}
+  .name-cloud>span.line-start::before{content:none}
 }
 
 /* Dante mark: uninterrupted black circle, leaving certification artwork unchanged. */
