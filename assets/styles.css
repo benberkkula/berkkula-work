@@ -121,20 +121,6 @@
 @media(max-width:980px){.featured-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.featured-grid>article{grid-column:auto}}
 @media(max-width:760px){.featured-grid{grid-template-columns:1fr}.featured-grid>article{min-height:225px}}
 
-/* About: external profiles and Dante Level 2 badge */
-.about-profiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin:30px 0 28px;max-width:420px}
-.about-profiles .profile-link{display:flex;min-width:0;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:14px 8px 12px;border:1px solid #e0e3df;background:rgba(255,255,255,.37);color:#505955;text-align:center;text-decoration:none;transition:background .2s,border-color .2s,transform .2s}
-.about-profiles .profile-link:hover{background:#fff;border-color:#9fbcd2;transform:translateY(-2px)}
-.about-profiles .profile-link:focus-visible{outline:2px solid #9fbcd2;outline-offset:3px}
-.profile-icon{display:grid;place-items:center;width:58px;height:58px;border-radius:50%;border:1px solid rgba(25,28,27,.06)}
-.profile-instagram{background:#faedf2;color:#343a3a}
-.profile-soundbetter{background:#f9f5e7;color:#343a3a}
-.profile-dante{background:#eaf3fa;overflow:hidden}
-.profile-dante img{display:block;width:52px;height:44px;object-fit:contain}
-.sb-monogram{font:800 23px/1 Arial,"Helvetica Neue",sans-serif;letter-spacing:-.12em;margin-left:-4px}
-.profile-label{font-size:11px;font-weight:550;line-height:1.35;white-space:normal}
-@media(max-width:440px){.about-profiles{gap:7px}.about-profiles .profile-link{padding:11px 4px}.profile-label{font-size:10px}}
-
 /* About — quiet professional links and Dante certification */
 .profile-links{display:flex;align-items:flex-start;flex-wrap:wrap;gap:16px 24px;border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke);padding:23px 0;margin:24px 0 25px}
 .profile-item{display:flex;align-items:center;flex-direction:column;gap:10px;width:94px;min-width:0;color:var(--muted);text-align:center;text-decoration:none;line-height:1.3}
@@ -146,3 +132,49 @@
 .profile-credential .profile-icon.profile-dante{width:74px;height:56px;border:0;border-radius:5px;background:#111;overflow:hidden}
 .profile-dante img{display:block;width:100%;height:100%;object-fit:contain}
 @media(max-width:620px){.profile-links{gap:14px 12px}.profile-item{width:88px}}
+
+/* Polished About icons: one nonduplicated row, middle Dante badge is decorative. */
+.profile-links{justify-content:flex-start}
+.profile-item .profile-icon{background:#fff}
+.profile-credential .profile-icon.profile-dante{
+  display:grid;place-items:center;width:55px;height:55px;
+  background:#fff;border:1px solid #d7ddda;border-radius:50%;
+  overflow:hidden
+}
+.profile-credential .profile-dante img{display:block;width:52px;height:43px;object-fit:contain}
+.profile-credential{cursor:default}
+
+/* Selected Work: consistent white interiors with pastel frames. */
+.featured-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:stretch;grid-auto-rows:1fr}
+.featured-grid>article{
+  grid-column:auto;display:flex;flex-direction:column;align-items:flex-start;
+  min-width:0;min-height:335px;height:100%;padding:24px 23px;
+  background:#fff!important;color:#181a1a;
+  border:6px solid #f1e7b9;border-radius:15px
+}
+.featured-grid>article:nth-child(1){border-color:#f1e7b9;background:#fff!important}
+.featured-grid>article:nth-child(2){border-color:#cadfec;background:#fff!important}
+.featured-grid>article:nth-child(3){border-color:#edd3de;background:#fff!important}
+.feature-topline{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;min-height:22px}
+.feature-topline .tiny-label,.feature-topline .feature-date{margin:0;color:#555b57}
+.feature-topline .feature-date{white-space:nowrap}
+.featured-grid>article h3{
+  margin:28px 0 12px;min-height:87px;
+  font-family:var(--serif);font-weight:400;
+  color:#181a1a;line-height:1.14;
+}
+.featured-grid>article p,.featured-grid>article .arrow-link{color:#181a1a}
+.featured-grid>article .arrow-link{margin-top:auto}
+
+/* Collaboration names remain intact on narrow screens, including accented names. */
+@media(max-width:860px){
+  .featured-grid{grid-template-columns:1fr}
+  .featured-grid>article{min-height:260px}
+  .featured-grid>article h3{min-height:0}
+}
+@media(max-width:650px){
+  .name-cloud{display:flex;flex-wrap:wrap;gap:7px 14px;align-items:baseline;line-height:1.8}
+  .name-cloud>span{display:inline-block;white-space:nowrap;max-width:100%}
+  .name-cloud>span a{white-space:nowrap}
+  .name-cloud>span:not(:last-child)::after{content:none}
+}
