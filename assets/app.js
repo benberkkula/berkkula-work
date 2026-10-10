@@ -105,7 +105,7 @@ function extractVideoId(url){try{const u=new URL(url);return u.searchParams.get(
 function renderVideos(videos){
   const root=$('#video-grid');root.replaceChildren();
   videos.slice(0,3).forEach((vid,i)=>{
-    if(!/^[\\w-]{11}$/.test(vid.videoId))return;
+    if(!/^[A-Za-z0-9_-]{11}$/.test(vid.videoId))return;
     const article=el('article','video-card');
     const frame=el('div','video-frame');
     const button=el('button','video-thumb');button.type='button';button.setAttribute('aria-label',`Play ${vid.artist} – ${vid.title}`);
