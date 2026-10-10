@@ -234,3 +234,12 @@
 @media(max-width:760px){
   .artist-credits{padding-top:38px;padding-bottom:52px}
 }
+
+/* Two selected-credit cards share the former three-card full width. */
+#work .featured-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-auto-rows:1fr;
+}
+@media(max-width:860px){
+  #work .featured-grid{grid-template-columns:minmax(0,1fr)}
+}
