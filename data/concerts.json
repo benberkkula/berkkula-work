@@ -10,6 +10,112 @@
       "country": "TR",
       "role": "FOH Engineer",
       "venueEn": "Cemal Reşit Rey Concert Hall"
+    },
+    {
+      "date": "2026-10-14",
+      "artist": "Duman",
+      "city": "Bursa",
+      "venue": "Bursa Açıkhava",
+      "venueEn": "Bursa Open Air",
+      "country": "TR",
+      "role": "FOH Engineer",
+      "id": "bk-d126825a72f1"
+    },
+    {
+      "date": "2026-10-17",
+      "artist": "Duman",
+      "city": "İzmir",
+      "venue": "Havagazı Fabrikası",
+      "country": "TR",
+      "role": "FOH Engineer",
+      "id": "bk-58427b11187e"
+    },
+    {
+      "date": "2026-10-18",
+      "artist": "Duman",
+      "city": "Antalya",
+      "venue": "Antalya Müzik Festivali",
+      "venueEn": "Antalya Music Festival",
+      "country": "TR",
+      "role": "FOH Engineer",
+      "id": "bk-d2a0d888f255"
+    },
+    {
+      "date": "2026-10-23",
+      "artist": "Duman",
+      "city": "İstanbul",
+      "venue": "Büyükçekmece Kemal Sunal Amfi Tiyatrosu",
+      "venueEn": "Büyükçekmece Kemal Sunal Amphitheatre",
+      "country": "TR",
+      "role": "FOH Engineer",
+      "id": "bk-cf8433710a3c"
+    },
+    {
+      "date": "2026-10-24",
+      "artist": "Adamlar",
+      "city": "Eskişehir",
+      "venue": "Kentpark Festival Alanı",
+      "venueEn": "Kentpark Festival Grounds",
+      "country": "TR",
+      "role": "FOH Engineer",
+      "id": "bk-9f89dd16af48"
+    },
+    {
+      "date": "2026-10-25",
+      "artist": "Duman",
+      "city": "Ankara",
+      "venue": "ODTÜ Vişnelik",
+      "country": "TR",
+      "role": "FOH Engineer",
+      "id": "bk-642b857e35eb"
+    },
+    {
+      "date": "2026-10-27",
+      "artist": "Zeynep Bastık",
+      "city": "Ankara",
+      "venue": "Yenimahalle Belediyesi",
+      "venueEn": "Yenimahalle Municipality",
+      "country": "TR",
+      "role": "Monitor Engineer",
+      "id": "bk-b0ab718501af"
+    },
+    {
+      "date": "2026-10-28",
+      "artist": "Duman",
+      "city": "İstanbul",
+      "venue": "Harbiye Açıkhava",
+      "venueEn": "Harbiye Open Air",
+      "country": "TR",
+      "role": "FOH Engineer",
+      "id": "bk-3328a294afe2"
+    },
+    {
+      "date": "2026-10-29",
+      "artist": "Zeynep Bastık",
+      "city": "Çorlu",
+      "venue": "Çorlu Belediyesi",
+      "venueEn": "Çorlu Municipality",
+      "country": "TR",
+      "role": "Monitor Engineer",
+      "id": "bk-b74ad0a9a0ef"
+    },
+    {
+      "date": "2026-10-30",
+      "artist": "Duman",
+      "city": "Mersin",
+      "venue": "Marehan",
+      "country": "TR",
+      "role": "FOH Engineer",
+      "id": "bk-b6d4e02a9048"
+    },
+    {
+      "date": "2026-10-31",
+      "artist": "Duman",
+      "city": "Hatay",
+      "venue": "Gate Beach",
+      "country": "TR",
+      "role": "FOH Engineer",
+      "id": "bk-da8940c45d5a"
     }
   ]
 }
