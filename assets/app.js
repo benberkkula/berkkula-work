@@ -6,7 +6,7 @@ const i18n={
     ongoingTitle:'Core live projects',rolesLabel:'Roles & years',collabsTitle:'Selected collaborations',collabsIntro:'Selected artists from live and studio projects.',
     mixesTitle:'Mixes',mixesIntro:'Latest mix on Spotify, followed by a dated selection of earlier recording and mixing work.',mixPlayerLabel:'CURRENT MIX SPOTLIGHT',openMix:'Watch on YouTube ↗',mixUpdateTitle:'IN THE ARCHIVE',mixUpdateBody:'Albums, singles and live recordings, organized by release year.',docLinksTitle:'DOCUMENTS',audioFallback:'Listen on Spotify. Playback availability depends on Spotify.',playLatest:'Play latest mix',
     archiveEyebrow:'RECENT & EARLIER WORK',archiveTitle:'Recording & mixing archive',allRecordings:'Full discography ↗',
-    videosTitle:'Latest live videos',videosIntro:'Three selected recent live-related works. Videos open on YouTube.',
+    videosTitle:'Latest works',videosIntro:'Three selected recent works. Videos open on YouTube.',
     datesTitle:'Upcoming dates',datesIntro:'Live schedule.',turkey:'Türkiye',international:'International',scheduledShows:'SCHEDULED PERFORMANCES',noConcerts:'New performance dates will be announced here.',
     aboutTitle:'About',aboutLead:'Independent audio engineer working across live performance, studio recording and mixing since 2007.',aboutBody:'FOH and monitor engineering for tours and festivals. Studio recording and mixing from a private mix suite, with project sessions at various studios.',writeMe:'Email me ↗',
     loadSpotify:'Load Spotify player ↗',spotifyPreviewLabel:'SPOTIFY AUDIO',err:'Schedule temporarily unavailable. Please check again later.'
@@ -18,7 +18,7 @@ const i18n={
     ongoingTitle:'Süregelen sahne projeleri',rolesLabel:'Görevler ve yıllar',collabsTitle:'Seçili iş birlikleri',collabsIntro:'Sahne ve stüdyo projelerinden seçili sanatçılar.',
     mixesTitle:'Miksler',mixesIntro:'Spotify’da son miks; altında tarihli eski kayıt ve miks çalışmaları.',mixPlayerLabel:'GÜNCEL MİKS SPOTU',openMix:'YouTube’da izle ↗',mixUpdateTitle:'ARŞİVDE',mixUpdateBody:'Albümler, tekliler ve canlı kayıtlar yayın yılına göre sıralanır.',docLinksTitle:'DOKÜMANLAR',audioFallback:'Spotify’da dinle. Tam oynatma için Spotify gerekebilir.',playLatest:'Son miksi oynat',
     archiveEyebrow:'YENİ & ESKİ ÇALIŞMALAR',archiveTitle:'Kayıt ve miks arşivi',allRecordings:'Tüm diskografi ↗',
-    videosTitle:'Güncel live videolar',videosIntro:'Yakın dönemden seçili üç live iş. Videolar YouTube’da açılır.',
+    videosTitle:'Son çalışmalar',videosIntro:'Yakın dönemden seçili üç çalışma. Videolar YouTube’da açılır.',
     datesTitle:'Yaklaşan konserler',datesIntro:'Konser takvimi.',turkey:'Türkiye',international:'Yurtdışı',scheduledShows:'PLANLANAN KONSERLER',noConcerts:'Yeni konser tarihleri burada yayınlanacak.',
     aboutTitle:'Hakkında',aboutLead:'2007’den bu yana canlı ses, stüdyo kaydı ve miks alanlarında çalışan bağımsız ses mühendisi.',aboutBody:'Turneler ve festivaller için FOH ve monitör mühendisliği. Özel miks stüdyosunda kayıt ve miks; farklı stüdyolarda proje bazlı çalışmalar.',writeMe:'E-posta gönder ↗',
     loadSpotify:'Spotify oynatıcıyı aç ↗',spotifyPreviewLabel:'SPOTIFY SES',err:'Takvim geçici olarak yüklenemedi. Lütfen daha sonra tekrar deneyin.'
