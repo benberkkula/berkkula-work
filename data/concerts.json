@@ -6,17 +6,15 @@
       "date": "2026-10-11",
       "artist": "Kaan Tangöze",
       "venue": "Cemal Reşit Rey Konser Salonu",
-      "city": "İstanbul",
+      "city": "Istanbul",
       "country": "TR",
-      "role": "FOH Engineer",
-      "venueEn": "Cemal Reşit Rey Concert Hall"
+      "role": "FOH Engineer"
     },
     {
       "date": "2026-10-14",
       "artist": "Duman",
       "city": "Bursa",
-      "venue": "Bursa Açıkhava",
-      "venueEn": "Bursa Open Air",
+      "venue": "Açıkhava Tiyatrosu",
       "country": "TR",
       "role": "FOH Engineer",
       "id": "bk-d126825a72f1"
@@ -35,7 +33,6 @@
       "artist": "Duman",
       "city": "Antalya",
       "venue": "Antalya Müzik Festivali",
-      "venueEn": "Antalya Music Festival",
       "country": "TR",
       "role": "FOH Engineer",
       "id": "bk-d2a0d888f255"
@@ -43,9 +40,8 @@
     {
       "date": "2026-10-23",
       "artist": "Duman",
-      "city": "İstanbul",
+      "city": "Istanbul",
       "venue": "Büyükçekmece Kemal Sunal Amfi Tiyatrosu",
-      "venueEn": "Büyükçekmece Kemal Sunal Amphitheatre",
       "country": "TR",
       "role": "FOH Engineer",
       "id": "bk-cf8433710a3c"
@@ -55,7 +51,6 @@
       "artist": "Adamlar",
       "city": "Eskişehir",
       "venue": "Kentpark Festival Alanı",
-      "venueEn": "Kentpark Festival Grounds",
       "country": "TR",
       "role": "FOH Engineer",
       "id": "bk-9f89dd16af48"
@@ -64,7 +59,7 @@
       "date": "2026-10-25",
       "artist": "Duman",
       "city": "Ankara",
-      "venue": "ODTÜ Vişnelik",
+      "venue": "ODTU Vişnelik",
       "country": "TR",
       "role": "FOH Engineer",
       "id": "bk-642b857e35eb"
@@ -74,7 +69,6 @@
       "artist": "Zeynep Bastık",
       "city": "Ankara",
       "venue": "Yenimahalle Belediyesi",
-      "venueEn": "Yenimahalle Municipality",
       "country": "TR",
       "role": "Monitor Engineer",
       "id": "bk-b0ab718501af"
@@ -82,9 +76,8 @@
     {
       "date": "2026-10-28",
       "artist": "Duman",
-      "city": "İstanbul",
+      "city": "Istanbul",
       "venue": "Harbiye Açıkhava",
-      "venueEn": "Harbiye Open Air",
       "country": "TR",
       "role": "FOH Engineer",
       "id": "bk-3328a294afe2"
@@ -92,9 +85,8 @@
     {
       "date": "2026-10-29",
       "artist": "Zeynep Bastık",
-      "city": "Çorlu",
+      "city": "Tekirdağ",
       "venue": "Çorlu Belediyesi",
-      "venueEn": "Çorlu Municipality",
       "country": "TR",
       "role": "Monitor Engineer",
       "id": "bk-b74ad0a9a0ef"
@@ -110,7 +102,7 @@
     },
     {
       "date": "2026-10-31",
-      "artist": "Duman",
+      "artist": "DUMAN",
       "city": "Hatay",
       "venue": "Gate Beach",
       "country": "TR",
