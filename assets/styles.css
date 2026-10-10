@@ -105,3 +105,7 @@
 /* The uploaded About photograph is already monochrome. Applying grayscale to the
    image element would desaturate the CSS border as well, turning blue into gray. */
 .about-photo img {filter:none !important}
+
+/* Portrait placement: black-and-white at top, colour in About. */
+.portrait-card img { object-position: 50% 42%; }
+.about-photo img { object-position: 23% 50%; }
