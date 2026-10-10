@@ -178,3 +178,10 @@
   .name-cloud>span a{white-space:nowrap}
   .name-cloud>span:not(:last-child)::after{content:none}
 }
+
+/* Dante mark: uninterrupted black circle, leaving certification artwork unchanged. */
+.profile-credential .profile-icon.profile-dante{
+  background:#080808;
+  border:1px solid #080808;
+  box-shadow:none;
+}
