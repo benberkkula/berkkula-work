@@ -357,3 +357,22 @@
   text-decoration-color:currentColor;
   text-decoration-thickness:1px;
 }
+
+/* Video thumbnails and embedded players share the same five-pixel
+   blue-to-cream-to-pink gradient frame as the portrait and credit cards. */
+.video-frame{
+  width:100%;
+  padding:5px;
+  border-radius:15px;
+  background:linear-gradient(155deg,rgba(168,191,209,.65),rgba(247,247,245,.85) 43%,rgba(217,168,188,.75));
+}
+.video-frame .video-thumb,
+.video-frame iframe{
+  display:block;
+  width:100%;
+  aspect-ratio:16/9;
+  border:0;
+  border-radius:10px;
+  overflow:hidden;
+}
+.video-frame iframe{background:#080808}

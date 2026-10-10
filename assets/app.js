@@ -6,7 +6,7 @@ const i18n={
     ongoingTitle:'Core live projects',rolesLabel:'Roles & years',collabsTitle:'Selected collaborations',collabsIntro:'Selected artists from live and studio projects.',
     mixesTitle:'Mixes',mixesIntro:'Latest mix on Spotify, followed by a dated selection of earlier recording and mixing work.',mixPlayerLabel:'CURRENT MIX SPOTLIGHT',openMix:'Watch on YouTube ↗',mixUpdateTitle:'IN THE ARCHIVE',mixUpdateBody:'Albums, singles and live recordings, organized by release year.',docLinksTitle:'DOCUMENTS',audioFallback:'Listen on Spotify. Playback availability depends on Spotify.',playLatest:'Play latest mix',
     archiveEyebrow:'RECENT & EARLIER WORK',archiveTitle:'Recording & mixing archive',allRecordings:'Full discography ↗',
-    videosTitle:'Selected works',videosIntro:'Three selected recent works. Videos open on YouTube.',
+    videosTitle:'Selected works',videosIntro:'Three selected live recording & mixing works. Videos open on YouTube.',
     datesTitle:'Upcoming dates',datesIntro:'Live schedule.',turkey:'Türkiye',international:'International',scheduledShows:'SCHEDULED PERFORMANCES',noConcerts:'New performance dates will be announced here.',
     aboutTitle:'About',aboutLead:'Independent audio engineer working across live performance, studio recording and mixing since 2007.',aboutBody:'FOH and monitor engineering for tours and festivals. Studio recording and mixing from a private mix suite, with project sessions at various studios.',writeMe:'Get in touch ↗',
     loadSpotify:'Load Spotify player ↗',spotifyPreviewLabel:'SPOTIFY AUDIO',err:'Schedule temporarily unavailable. Please check again later.'
@@ -18,7 +18,7 @@ const i18n={
     ongoingTitle:'Süregelen sahne projeleri',rolesLabel:'Görevler ve yıllar',collabsTitle:'Seçili iş birlikleri',collabsIntro:'Sahne ve stüdyo projelerinden seçili sanatçılar.',
     mixesTitle:'Miksler',mixesIntro:'Spotify’da son miks; altında tarihli eski kayıt ve miks çalışmaları.',mixPlayerLabel:'GÜNCEL MİKS SPOTU',openMix:'YouTube’da izle ↗',mixUpdateTitle:'ARŞİVDE',mixUpdateBody:'Albümler, tekliler ve canlı kayıtlar yayın yılına göre sıralanır.',docLinksTitle:'DOKÜMANLAR',audioFallback:'Spotify’da dinle. Tam oynatma için Spotify gerekebilir.',playLatest:'Son miksi oynat',
     archiveEyebrow:'YENİ & ESKİ ÇALIŞMALAR',archiveTitle:'Kayıt ve miks arşivi',allRecordings:'Tüm diskografi ↗',
-    videosTitle:'Seçili çalışmalar',videosIntro:'Yakın dönemden seçili üç çalışma. Videolar YouTube’da açılır.',
+    videosTitle:'Seçili çalışmalar',videosIntro:'Seçili üç canlı kayıt ve miks çalışması. Videolar YouTube’da açılır.',
     datesTitle:'Yaklaşan konserler',datesIntro:'Konser takvimi.',turkey:'Türkiye',international:'Yurtdışı',scheduledShows:'PLANLANAN KONSERLER',noConcerts:'Yeni konser tarihleri burada yayınlanacak.',
     aboutTitle:'Hakkında',aboutLead:'2007’den bu yana canlı ses, stüdyo kaydı ve miks alanlarında çalışan bağımsız ses mühendisi.',aboutBody:'Turneler ve festivaller için FOH ve monitör mühendisliği. Özel miks stüdyosunda kayıt ve miks; farklı stüdyolarda proje bazlı çalışmalar.',writeMe:'İletişime geç ↗',
     loadSpotify:'Spotify oynatıcıyı aç ↗',spotifyPreviewLabel:'SPOTIFY SES',err:'Takvim geçici olarak yüklenemedi. Lütfen daha sonra tekrar deneyin.'
@@ -105,15 +105,23 @@ function extractVideoId(url){try{const u=new URL(url);return u.searchParams.get(
 function renderVideos(videos){
   const root=$('#video-grid');root.replaceChildren();
   videos.slice(0,3).forEach((vid,i)=>{
-    if(!/^[\w-]{11}$/.test(vid.videoId))return;
+    if(!/^[\\w-]{11}$/.test(vid.videoId))return;
     const article=el('article','video-card');
+    const frame=el('div','video-frame');
     const button=el('button','video-thumb');button.type='button';button.setAttribute('aria-label',`Play ${vid.artist} – ${vid.title}`);
     const img=el('img');img.src=`https://i.ytimg.com/vi/${vid.videoId}/hqdefault.jpg`;img.alt=`${vid.artist} – ${vid.title}`;img.loading='lazy';
     button.append(img,el('span','play','▶'));
-    button.addEventListener('click',()=>{const iframe=el('iframe');iframe.src=`https://www.youtube-nocookie.com/embed/${vid.videoId}?autoplay=1`;iframe.title=`${vid.artist} – ${vid.title}`;iframe.loading='lazy';iframe.allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';iframe.allowFullscreen=true;iframe.style.cssText='display:block;width:100%;aspect-ratio:16/9;border:0';button.replaceWith(iframe)});
+    button.addEventListener('click',()=>{
+      const iframe=el('iframe');
+      iframe.src=`https://www.youtube-nocookie.com/embed/${vid.videoId}?autoplay=1&start=0`;
+      iframe.title=`${vid.artist} – ${vid.title}`;iframe.allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen=true;
+      button.replaceWith(iframe);
+    });
+    frame.append(button);
     const meta=el('div','video-meta');meta.append(el('span','',`0${i+1} / 03`),el('span','',vid.type.toUpperCase()));
     const heading=el('h3');const link=el('a','',vid.title);link.href=`https://www.youtube.com/watch?v=${vid.videoId}`;link.target='_blank';link.rel='noopener noreferrer';heading.append(link);
-    article.append(button,meta,heading,el('p','',vid.artist));root.append(article);
+    article.append(frame,meta,heading,el('p','',vid.artist));root.append(article);
   });
 }
 function renderRecordings(){
