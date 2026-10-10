@@ -185,3 +185,29 @@
   border:1px solid #080808;
   box-shadow:none;
 }
+
+/* October refinement: match the portrait's blue/pink gradient frame. */
+.featured-grid>article,
+.featured-grid>article:nth-child(1),
+.featured-grid>article:nth-child(2),
+.featured-grid>article:nth-child(3){
+  border:6px solid transparent;
+  border-radius:15px;
+  background:
+    linear-gradient(#fff,#fff) padding-box,
+    linear-gradient(155deg,rgba(168,191,209,.65),rgba(247,247,245,.85) 43%,rgba(217,168,188,.75)) border-box !important;
+  color:#181a1a;
+}
+
+/* Instagram and SoundBetter now share the Dante badge's black/white treatment. */
+.profile-links a.profile-item .profile-icon {
+  background:#080808;
+  border-color:#080808;
+  color:#fff;
+}
+.profile-links a.profile-item:hover .profile-icon,
+.profile-links a.profile-item:focus-visible .profile-icon {
+  background:#1c1c1c;
+  border-color:#1c1c1c;
+  color:#fff;
+}

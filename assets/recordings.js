@@ -67,7 +67,7 @@ function update(){
     const info=el('div','recording-info');const title=el('strong');
     if(r.url&&/^https:\/\//.test(r.url)){const link=el('a','',`${r.artist} — ${r.title}`);link.href=r.url;link.target='_blank';link.rel='noopener noreferrer';title.append(link)} else title.textContent=`${r.artist} — ${r.title}`;
     info.append(title,el('span','',r.role));
-    if(Array.isArray(r.tracks)&&r.tracks.length){
+    if(Array.isArray(r.tracks)&&r.tracks.length&&r.id!=='mahzuni'){
       const details=el('details','recording-tracks');
       details.append(el('summary','',state.lang==='tr'?`${r.tracks.length} parçayı göster`:`View ${r.tracks.length} tracks`));
       const list=el('ol','recording-tracklist');r.tracks.forEach(track=>list.append(el('li','',track)));
