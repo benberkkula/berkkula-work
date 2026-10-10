@@ -227,3 +227,10 @@
     linear-gradient(155deg,rgba(168,191,209,.65),rgba(247,247,245,.85) 43%,rgba(217,168,188,.75)) border-box !important;
   color:#181a1a;
 }
+
+/* Core live projects & collaborations precede the Discography section. */
+.artist-credits{padding-top:52px;padding-bottom:68px}
+.artist-credits>.credits:first-child{margin-top:0;padding-top:0}
+@media(max-width:760px){
+  .artist-credits{padding-top:38px;padding-bottom:52px}
+}
