@@ -134,3 +134,15 @@
 .sb-monogram{font:800 23px/1 Arial,"Helvetica Neue",sans-serif;letter-spacing:-.12em;margin-left:-4px}
 .profile-label{font-size:11px;font-weight:550;line-height:1.35;white-space:normal}
 @media(max-width:440px){.about-profiles{gap:7px}.about-profiles .profile-link{padding:11px 4px}.profile-label{font-size:10px}}
+
+/* About — quiet professional links and Dante certification */
+.profile-links{display:flex;align-items:flex-start;flex-wrap:wrap;gap:16px 24px;border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke);padding:23px 0;margin:24px 0 25px}
+.profile-item{display:flex;align-items:center;flex-direction:column;gap:10px;width:94px;min-width:0;color:var(--muted);text-align:center;text-decoration:none;line-height:1.3}
+.profile-item:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
+.profile-item .profile-icon{display:grid;place-items:center;flex:none;width:55px;height:55px;border:1px solid #d7ddda;border-radius:50%;background:#f8f8f5;color:#303735;transition:transform .2s,border-color .2s,background .2s}
+.profile-item:is(a):hover .profile-icon{transform:translateY(-2px);border-color:#a8bfd1;background:#eaf3f7}
+.profile-label{font:500 10px/1.4 var(--sans);color:#737b78;letter-spacing:.015em;white-space:nowrap}
+.profile-sb{font-size:19px;font-weight:800;letter-spacing:-.09em;text-transform:lowercase}
+.profile-credential .profile-icon.profile-dante{width:74px;height:56px;border:0;border-radius:5px;background:#111;overflow:hidden}
+.profile-dante img{display:block;width:100%;height:100%;object-fit:contain}
+@media(max-width:620px){.profile-links{gap:14px 12px}.profile-item{width:88px}}
