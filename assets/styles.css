@@ -186,28 +186,31 @@
   box-shadow:none;
 }
 
-/* October refinement: match the portrait's blue/pink gradient frame. */
-.featured-grid>article,
-.featured-grid>article:nth-child(1),
-.featured-grid>article:nth-child(2),
-.featured-grid>article:nth-child(3){
-  border:6px solid transparent;
-  border-radius:15px;
+/* About icons: the same soft-gradient circular frame as the main portrait.
+   All three centers are black with white artwork. */
+.profile-item .profile-icon,
+.profile-credential .profile-icon.profile-dante{
+  box-sizing:border-box;
+  display:grid;place-items:center;
+  flex:0 0 70px;
+  width:70px;height:70px;
+  padding:0;
+  border:5px solid transparent;
+  border-radius:50%;
   background:
-    linear-gradient(#fff,#fff) padding-box,
-    linear-gradient(155deg,rgba(168,191,209,.65),rgba(247,247,245,.85) 43%,rgba(217,168,188,.75)) border-box !important;
-  color:#181a1a;
-}
-
-/* Instagram and SoundBetter now share the Dante badge's black/white treatment. */
-.profile-links a.profile-item .profile-icon {
-  background:#080808;
-  border-color:#080808;
+    linear-gradient(#080808,#080808) padding-box,
+    linear-gradient(155deg,rgba(168,191,209,.65),rgba(247,247,245,.85) 43%,rgba(217,168,188,.75)) border-box;
   color:#fff;
+  box-shadow:none;
+  overflow:hidden;
 }
-.profile-links a.profile-item:hover .profile-icon,
-.profile-links a.profile-item:focus-visible .profile-icon {
-  background:#1c1c1c;
-  border-color:#1c1c1c;
-  color:#fff;
+.profile-item:is(a):hover .profile-icon{
+  border-color:transparent;
+  background:
+    linear-gradient(#080808,#080808) padding-box,
+    linear-gradient(155deg,rgba(168,191,209,.65),rgba(247,247,245,.85) 43%,rgba(217,168,188,.75)) border-box;
+  transform:translateY(-2px);
 }
+.profile-item .profile-icon svg{stroke:#fff}
+.profile-sb{color:#fff}
+.profile-credential .profile-dante img{display:block;width:58px;height:51px;object-fit:contain}
