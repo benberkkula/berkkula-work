@@ -7,8 +7,8 @@ const i18n={
     mixesTitle:'Mixes',mixesIntro:'Latest mix on Spotify, followed by a dated selection of earlier recording and mixing work.',mixPlayerLabel:'CURRENT MIX SPOTLIGHT',openMix:'Watch on YouTube ↗',mixUpdateTitle:'IN THE ARCHIVE',mixUpdateBody:'Albums, singles and live recordings, organized by release year.',docLinksTitle:'DOCUMENTS',audioFallback:'Listen on Spotify. Playback availability depends on Spotify.',playLatest:'Play latest mix',
     archiveEyebrow:'RECENT & EARLIER WORK',archiveTitle:'Recording & mixing archive',allRecordings:'Full discography ↗',
     videosTitle:'Latest live videos',videosIntro:'Three selected recent live-related works. Videos open on YouTube.',
-    datesTitle:'Upcoming dates',datesIntro:'Live schedule. Past performances are archived for annual reporting.',turkey:'Türkiye',international:'International',scheduledShows:'SCHEDULED PERFORMANCES',noConcerts:'New performance dates will be announced here.',
-    aboutTitle:'About',aboutLead:'Independent audio engineer working across live performance, studio recording and mixing since 2007.',aboutBody:'FOH and monitor engineering for tours and festivals. Studio recording and mixing from a private mix suite, with project sessions at Babajim, Pür, Hayyam and Deneyevi studios.',writeMe:'Email me ↗',
+    datesTitle:'Upcoming dates',datesIntro:'Live schedule.',turkey:'Türkiye',international:'International',scheduledShows:'SCHEDULED PERFORMANCES',noConcerts:'New performance dates will be announced here.',
+    aboutTitle:'About',aboutLead:'Independent audio engineer working across live performance, studio recording and mixing since 2007.',aboutBody:'FOH and monitor engineering for tours and festivals. Studio recording and mixing from a private mix suite, with project sessions at various studios.',writeMe:'Email me ↗',
     loadSpotify:'Load Spotify player ↗',spotifyPreviewLabel:'SPOTIFY AUDIO',err:'Schedule temporarily unavailable. Please check again later.'
   },
   tr:{
@@ -19,8 +19,8 @@ const i18n={
     mixesTitle:'Miksler',mixesIntro:'Spotify’da son miks; altında tarihli eski kayıt ve miks çalışmaları.',mixPlayerLabel:'GÜNCEL MİKS SPOTU',openMix:'YouTube’da izle ↗',mixUpdateTitle:'ARŞİVDE',mixUpdateBody:'Albümler, tekliler ve canlı kayıtlar yayın yılına göre sıralanır.',docLinksTitle:'DOKÜMANLAR',audioFallback:'Spotify’da dinle. Tam oynatma için Spotify gerekebilir.',playLatest:'Son miksi oynat',
     archiveEyebrow:'YENİ & ESKİ ÇALIŞMALAR',archiveTitle:'Kayıt ve miks arşivi',allRecordings:'Tüm diskografi ↗',
     videosTitle:'Güncel live videolar',videosIntro:'Yakın dönemden seçili üç live iş. Videolar YouTube’da açılır.',
-    datesTitle:'Yaklaşan konserler',datesIntro:'Konser takvimi. Geçmiş performanslar yıllık rapor için arşivlenir.',turkey:'Türkiye',international:'Yurtdışı',scheduledShows:'PLANLANAN KONSERLER',noConcerts:'Yeni konser tarihleri burada yayınlanacak.',
-    aboutTitle:'Hakkında',aboutLead:'2007’den bu yana canlı ses, stüdyo kaydı ve miks alanlarında çalışan bağımsız ses mühendisi.',aboutBody:'Turneler ve festivaller için FOH ve monitör mühendisliği. Özel miks stüdyosunda kayıt ve miks; Babajim, Pür, Hayyam ve Deneyevi stüdyolarında proje bazlı çalışmalar.',writeMe:'E-posta gönder ↗',
+    datesTitle:'Yaklaşan konserler',datesIntro:'Konser takvimi.',turkey:'Türkiye',international:'Yurtdışı',scheduledShows:'PLANLANAN KONSERLER',noConcerts:'Yeni konser tarihleri burada yayınlanacak.',
+    aboutTitle:'Hakkında',aboutLead:'2007’den bu yana canlı ses, stüdyo kaydı ve miks alanlarında çalışan bağımsız ses mühendisi.',aboutBody:'Turneler ve festivaller için FOH ve monitör mühendisliği. Özel miks stüdyosunda kayıt ve miks; farklı stüdyolarda proje bazlı çalışmalar.',writeMe:'E-posta gönder ↗',
     loadSpotify:'Spotify oynatıcıyı aç ↗',spotifyPreviewLabel:'SPOTIFY SES',err:'Takvim geçici olarak yüklenemedi. Lütfen daha sonra tekrar deneyin.'
   }
 };
@@ -35,8 +35,15 @@ function setLanguage(lang){
   renderCalendar();renderUpcoming();renderLatestDate();renderRecordings();if(state.latestMix)renderMixPlayer(state.latestMix);
 }
 const el=(tag,cls,text)=>{const node=document.createElement(tag);if(cls)node.className=cls;if(text!==undefined)node.textContent=text;return node};
-function renderProjects(projects){const root=$('#core-projects');root.replaceChildren();for(const project of projects){const row=el('div','credit-row');row.append(el('strong','',project.artist),el('span','',`${project.role} · ${project.years}`));root.append(row)}}
-function renderCollabs(names){const root=$('#collab-list');root.replaceChildren();names.forEach(name=>root.append(el('span','',name)))}
+function artistSpotifyLink(name, profiles){
+  const href=profiles?.[name];
+  if(typeof href!=='string'||!/^https:\/\/open\.spotify\.com\/artist\/[A-Za-z0-9]{22}$/.test(href))return document.createTextNode(name);
+  const link=el('a','artist-spotify',name);
+  link.href=href;link.target='_blank';link.rel='noopener noreferrer';link.title='Spotify — '+name;
+  return link;
+}
+function renderProjects(projects,profiles){const root=$('#core-projects');root.replaceChildren();for(const project of projects){const row=el('div','credit-row');const title=el('strong');title.append(artistSpotifyLink(project.artist,profiles));row.append(title,el('span','',`${project.role} · ${project.years}`));root.append(row)}}
+function renderCollabs(names,profiles){const root=$('#collab-list');root.replaceChildren();names.forEach(name=>{const item=el('span');item.append(artistSpotifyLink(name,profiles));root.append(item)})}
 function renderLatestDate(){const target=$('#latest-mix-date');if(target.dataset.displayDate){target.textContent=target.dataset.displayDate;return}if(target.dataset.iso){const parts=target.dataset.iso.split('-').map(Number);target.textContent=new Intl.DateTimeFormat(locale(),{day:'numeric',month:'long',year:'numeric'}).format(new Date(parts[0],parts[1]-1,parts[2]))}}
 function renderMix(mix){
   state.latestMix=mix;
@@ -136,6 +143,6 @@ async function init(){
   $('#month-next').addEventListener('click',()=>{state.cursor=new Date(state.cursor.getFullYear(),state.cursor.getMonth()+1,1);renderCalendar()});
   $('#lang-switch').addEventListener('click',()=>setLanguage(state.lang==='en'?'tr':'en')); 
   renderCalendar();renderUpcoming();setLanguage('en');
-  try{const [siteRes,showsRes]=await Promise.all([fetch('data/site.json',{cache:'no-store'}),fetch('data/concerts.json',{cache:'no-store'})]);if(!siteRes.ok||!showsRes.ok)throw new Error('Unable to load site data');const [site,shows]=await Promise.all([siteRes.json(),showsRes.json()]);renderMix(site.latestMix);renderProjects(site.projects||[]);renderCollabs(site.collaborations||[]);renderVideos(site.videos||[]);state.recordings=site.recordings||[];renderRecordings();state.events=(shows.concerts||[]).map(normalizedEvent).filter(Boolean);renderCalendar();renderUpcoming()}catch(error){console.error(error);$('#upcoming-shows').replaceChildren(el('p','empty-dates',i18n[state.lang].err))}
+  try{const [siteRes,showsRes]=await Promise.all([fetch('data/site.json',{cache:'no-store'}),fetch('data/concerts.json',{cache:'no-store'})]);if(!siteRes.ok||!showsRes.ok)throw new Error('Unable to load site data');const [site,shows]=await Promise.all([siteRes.json(),showsRes.json()]);renderMix(site.latestMix);renderProjects(site.projects||[],site.artistSpotify||{});renderCollabs(site.collaborations||[],site.artistSpotify||{});renderVideos(site.videos||[]);state.recordings=site.recordings||[];renderRecordings();state.events=(shows.concerts||[]).map(normalizedEvent).filter(Boolean);renderCalendar();renderUpcoming()}catch(error){console.error(error);$('#upcoming-shows').replaceChildren(el('p','empty-dates',i18n[state.lang].err))}
 }
 init();
