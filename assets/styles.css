@@ -277,3 +277,49 @@
   text-align:center;
   white-space:nowrap;
 }
+
+/* Align the since-date and portrait-role caption on one shared baseline.
+   Use the hero's two-column measurements for the single metadata row. */
+.intro-layout{
+  --hero-left:minmax(0,1.5fr);
+  --hero-right:minmax(215px,.55fr);
+  --hero-gap:clamp(32px,5vw,70px);
+  grid-template-columns:var(--hero-left) var(--hero-right);
+  column-gap:var(--hero-gap);
+  row-gap:14px;
+  align-items:end;
+}
+.intro-copy,.intro-aside{min-width:0}
+.intro-foot{
+  grid-column:1/-1;
+  display:grid;
+  grid-template-columns:var(--hero-left) var(--hero-right);
+  column-gap:var(--hero-gap);
+  align-items:baseline;
+  margin:0;
+}
+.intro-foot .hero-roles{
+  display:block;
+  font:inherit;
+  font-weight:650;
+  letter-spacing:inherit;
+  text-align:center;
+  white-space:nowrap;
+}
+@media(max-width:980px){
+  .intro-layout{
+    --hero-left:minmax(0,1.4fr);
+    --hero-right:minmax(160px,.55fr);
+    --hero-gap:25px;
+  }
+}
+@media(max-width:650px){
+  .intro-layout{grid-template-columns:minmax(0,1fr);row-gap:14px}
+  .intro-foot{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:8px 14px;
+  }
+  .intro-foot .hero-roles{text-align:right}
+}
