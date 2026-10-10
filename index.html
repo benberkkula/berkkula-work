@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f5">
+  <meta name="description" content="Berk Kula — live sound, studio recording and mixing engineer. Istanbul and international productions.">
+  <meta property="og:title" content="Berk Kula — Audio Engineer">
+  <meta property="og:description" content="Live sound / FOH / Monitors / Studio Mixing">
+  <title>Berk Kula — Audio Engineer</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="header shell">
+    <a class="logo" href="#top" aria-label="Berk Kula — home">BERK KULA<span class="logo-dot">.</span></a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#work" data-i18n="navWork">Work</a>
+      <a href="recordings.html" data-i18n="navDiscography">Discography</a>
+      <a href="#videos" data-i18n="navVideos">Video</a>
+      <a href="#dates" data-i18n="navDates">Dates</a>
+      <a href="#about" data-i18n="navAbout">About</a>
+    </nav>
+    <button type="button" id="lang-switch" class="lang-switch" aria-label="Change language">TR</button>
+  </header>
+
+  <main id="main">
+    <section class="intro shell" id="top" aria-labelledby="intro-title">
+      <div class="intro-layout">
+        <div class="intro-copy">
+          <div class="eyebrow"><span class="status-mark" aria-hidden="true"></span><span data-i18n="introLabel">ISTANBUL · INTERNATIONAL</span></div>
+          <h1 id="intro-title">Sound engineering<span class="period">.</span><br><span class="hero-subline">Live &amp; recorded.</span></h1>
+          <p class="lede" data-i18n="introText">Live sound, recording and mixing. A focused approach to sound, in the studio and on stage.</p>
+          <div class="intro-links">
+            <a href="#work" class="text-link" data-i18n="seeWork">Selected work <span aria-hidden="true">↗</span></a>
+            <a href="cv.html" class="subtle-link" data-i18n="cvLink">CV</a>
+            <a href="docs/berk-kula-portfolio.pdf" class="subtle-link" data-i18n="portfolioLink" target="_blank" rel="noopener noreferrer">Portfolio PDF</a>
+            <a href="mailto:benberkkula@gmail.com" class="subtle-link" data-i18n="contact">Get in touch</a>
+          </div>
+          <div class="intro-foot"><span>SINCE 2007</span><span>FOH / MONITORS / MIXING</span></div>
+        </div>
+        <aside class="intro-aside" aria-label="Berk Kula live sound photo">
+          <figure class="portrait-figure">
+            <div class="portrait-card">
+              <img src="assets/berk-live-color.jpg" alt="Berk Kula working at a live sound mixing console" width="1800" height="1200" fetchpriority="high">
+            </div>
+            <figcaption><span data-i18n="photoLabel">LIVE SOUND</span><span>FOH / MONITORS</span></figcaption>
+          </figure>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section shell" id="work" aria-labelledby="work-title">
+      <div class="section-head">
+        <div><span class="index">01 / WORK</span><h2 id="work-title" data-i18n="selectedWork">Selected work</h2></div>
+        <p class="section-description" data-i18n="selectedIntro">A selection of recording, mixing and live sound credits.</p>
+      </div>
+      <div class="featured-grid">
+        <article class="featured-feature">
+          <span class="tiny-label" data-i18n="latestMix">LATEST MIX</span><span id="latest-mix-date" class="feature-date"></span>
+          <h3 id="latest-mix-title">Altın Hızma</h3>
+          <p id="latest-mix-artist">Batuhan Aydın &amp; Jülide Özçelik</p>
+          <a id="latest-mix-link" href="https://www.youtube.com/watch?v=3y82hqlA2mA" target="_blank" rel="noopener noreferrer" class="arrow-link" data-i18n="listen">Listen / watch <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="featured-secondary tint-blue">
+          <span class="tiny-label" data-i18n="albumCredit">ALBUM / MIXING</span>
+          <h3 data-i18n="discographyCardTitle">Discography</h3>
+          <p data-i18n="discographyCardBody">Selected albums, singles &amp; recording credits · 2007–2026</p>
+          <a href="recordings.html" class="arrow-link" data-i18n="albumLink">Explore recordings ↗</a>
+        </article>
+        <article class="featured-secondary tint-pink">
+          <span class="tiny-label" data-i18n="liveCredit">LIVE RECORDING / MIXING</span>
+          <h3>Dilerim Ki (Live @ Bostancı)</h3>
+          <p>Dolu Kadehi Ters Tut · 2026</p>
+          <a href="https://www.youtube.com/watch?v=87Yj3G9kWgg" class="arrow-link" target="_blank" rel="noopener noreferrer" data-i18n="watchVideo">Watch video <span aria-hidden="true">↗</span></a>
+        </article>
+      </div>
+      <div class="credits">
+        <div class="credits-label"><h3 data-i18n="ongoingTitle">Core live projects</h3><p data-i18n="rolesLabel">Roles &amp; years</p></div>
+        <div class="credit-list" id="core-projects"></div>
+      </div>
+      <div class="credits credits-lower">
+        <div class="credits-label"><h3 data-i18n="collabsTitle">Selected collaborations</h3><p data-i18n="collabsIntro">Selected artists from live and studio projects.</p></div>
+        <p class="name-cloud" id="collab-list"></p>
+      </div>
+    </section>
+
+    <section class="section shell" id="videos" aria-labelledby="videos-title">
+      <div class="section-head">
+        <div><span class="index">02 / VIDEO</span><h2 id="videos-title" data-i18n="videosTitle">Latest live videos</h2></div>
+        <p class="section-description" data-i18n="videosIntro">Three selected recent live-related works. Videos open on YouTube.</p>
+      </div>
+      <div id="video-grid" class="video-grid"></div>
+    </section>
+
+    <section class="section shell" id="dates" aria-labelledby="dates-title">
+      <div class="section-head">
+        <div><span class="index">03 / DATES</span><h2 id="dates-title" data-i18n="datesTitle">Upcoming dates</h2></div>
+        <p class="section-description" data-i18n="datesIntro">Live schedule. Past performances are archived for annual reporting.</p>
+      </div>
+      <div class="calendar-legend"><span><i class="key-dot key-tr"></i><span data-i18n="turkey">Türkiye</span></span><span><i class="key-dot key-int"></i><span data-i18n="international">International</span></span></div>
+      <div class="calendar-layout">
+        <div class="calendar" aria-label="Concert calendar"><div class="calendar-top"><button type="button" id="month-prev" aria-label="Previous month">←</button><h3 id="calendar-month" aria-live="polite"></h3><button type="button" id="month-next" aria-label="Next month">→</button></div><div class="weekdays" id="weekdays"></div><div class="calendar-days" id="calendar-days"></div></div>
+        <div class="dates-list"><div class="dates-list-title"><span data-i18n="scheduledShows">SCHEDULED PERFORMANCES</span><span id="shows-count">00</span></div><div id="upcoming-shows" aria-live="polite"></div></div>
+      </div>
+    </section>
+
+    <section class="section shell about" id="about" aria-labelledby="about-title">
+      <div class="section-head"><div><span class="index">04 / ABOUT</span><h2 id="about-title" data-i18n="aboutTitle">About</h2></div></div>
+      <div class="about-grid">
+        <div class="about-intro">
+          <p class="about-lead" data-i18n="aboutLead">Independent audio engineer working across live performance, studio recording and mixing since 2007.</p>
+          <figure class="about-photo">
+            <img src="assets/berk-live-bw.jpg" loading="lazy" alt="Berk Kula at the mixing desk during a live sound rehearsal" width="678" height="1208">
+          </figure>
+        </div>
+        <div class="about-details">
+          <p data-i18n="aboutBody">FOH and monitor engineering for tours and festivals. Studio recording and mixing from a private mix suite, with project sessions at Babajim, Pür, Hayyam and Deneyevi studios.</p>
+          <div class="specialties"><span>FOH / MONITORS</span><span>RECORDING / MIXING</span><span>DANTE / RF / IEM</span></div>
+          <div class="doc-row"><a href="cv.html" class="arrow-link" data-i18n="cvLink">CV</a><a href="docs/berk-kula-portfolio.pdf" target="_blank" rel="noopener noreferrer" class="arrow-link" data-i18n="portfolioLink">Portfolio PDF</a></div>
+          <a href="mailto:benberkkula@gmail.com" class="arrow-link" data-i18n="writeMe">Email me <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer shell"><span>© <span id="year"></span> BERK KULA</span><a href="mailto:benberkkula@gmail.com">BENBERKKULA@GMAIL.COM ↗</a><span>ISTANBUL / WORLDWIDE</span></footer>
+</body>
+</html>

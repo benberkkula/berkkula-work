@@ -1,0 +1,36 @@
+name: Update latest mix
+description: Only repository-owner submissions trigger automatic updates.
+title: "[mix] "
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Song title
+    validations:
+      required: true
+  - type: input
+    id: artist
+    attributes:
+      label: Artist
+    validations:
+      required: true
+  - type: input
+    id: date
+    attributes:
+      label: Release date (YYYY-MM-DD)
+      placeholder: "2026-10-09"
+    validations:
+      required: true
+  - type: input
+    id: role
+    attributes:
+      label: Credit / role
+      value: Mixing
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Listening URL (HTTPS)
+    validations:
+      required: true

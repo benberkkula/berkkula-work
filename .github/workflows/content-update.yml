@@ -1,0 +1,28 @@
+name: Content update
+on:
+  issues:
+    types: [opened]
+permissions:
+  contents: write
+  issues: write
+jobs:
+  update:
+    if: github.event.issue.user.login == github.repository_owner && (startsWith(github.event.issue.title, '[concert]') || startsWith(github.event.issue.title, '[mix]') || startsWith(github.event.issue.title, '[video]'))
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - name: Apply content update
+        run: python scripts/import_issue.py
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet || (git commit -m "Content update from issue #${{ github.event.issue.number }}" && git push)
+      - name: Close completed request
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh issue close "${{ github.event.issue.number }}" --comment "Updated website content successfully."

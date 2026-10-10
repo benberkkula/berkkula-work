@@ -1,0 +1,5 @@
+{
+  "schemaVersion": 1,
+  "description": "Permanent event archive. Past shows remain in this file but are not shown on the public calendar.",
+  "concerts": []
+}

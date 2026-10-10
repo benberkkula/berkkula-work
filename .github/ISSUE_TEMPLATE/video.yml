@@ -1,0 +1,29 @@
+name: Feature a new video
+description: Only repository-owner submissions trigger automatic updates.
+title: "[video] "
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Video title
+    validations:
+      required: true
+  - type: input
+    id: artist
+    attributes:
+      label: Artist
+    validations:
+      required: true
+  - type: input
+    id: type
+    attributes:
+      label: Credit / type
+      value: Live mixing
+    validations:
+      required: true
+  - type: input
+    id: video
+    attributes:
+      label: YouTube link
+    validations:
+      required: true

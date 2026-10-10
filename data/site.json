@@ -1,0 +1,377 @@
+{
+  "latestMix": {
+    "title": "Altın Hızma",
+    "artist": "Batuhan Aydın & Jülide Özçelik",
+    "date": "2026-10-09",
+    "role": "Mixing",
+    "url": "https://www.youtube.com/watch?v=3y82hqlA2mA",
+    "audioUrl": "",
+    "spotifyUrl": "https://open.spotify.com/intl-tr/track/6IXet4bhMDqmcWUEo53ABP?si=5d691402d1014705",
+    "displayDate": "2026"
+  },
+  "projects": [
+    {
+      "artist": "Duman",
+      "role": "FOH Engineer",
+      "years": "2015 – present"
+    },
+    {
+      "artist": "Zeynep Bastık",
+      "role": "Monitor Engineer",
+      "years": "2023 – present"
+    },
+    {
+      "artist": "Kaan Tangöze",
+      "role": "FOH Engineer",
+      "years": "2020 – present"
+    },
+    {
+      "artist": "Ari Barokas",
+      "role": "FOH Engineer",
+      "years": "2020 – present"
+    }
+  ],
+  "collaborations": [
+    "Sepultura",
+    "Goran Bregović",
+    "Editors",
+    "Buena Vista Social Club",
+    "Buika",
+    "Lola Marsh",
+    "The Blaze",
+    "Oscar and the Wolf",
+    "Ceylan Ertem",
+    "Jehan Barbur",
+    "Moğollar",
+    "Teoman",
+    "Şebnem Ferah",
+    "Melike Şahin",
+    "Mabel Matiz",
+    "Nil Karaibrahimgil",
+    "Kenan Doğulu",
+    "Athena",
+    "Yüksek Sadakat",
+    "Pinhani",
+    "Seksendört",
+    "Büyük Ev Ablukada",
+    "Yasemin Mori",
+    "Evrencan Gündüz",
+    "Ediz Hafızoğlu",
+    "Çilekeş",
+    "Korhan Futacı",
+    "Adamlar"
+  ],
+  "videos": [
+    {
+      "title": "Dilerim Ki (Live @ Bostancı)",
+      "artist": "Dolu Kadehi Ters Tut",
+      "type": "Live mixing",
+      "videoId": "87Yj3G9kWgg"
+    },
+    {
+      "title": "Altın Hızma",
+      "artist": "Batuhan Aydın & Jülide Özçelik",
+      "type": "Studio mixing",
+      "videoId": "3y82hqlA2mA"
+    },
+    {
+      "title": "Bilir O Beni",
+      "artist": "Pinhani",
+      "type": "Selected mixing",
+      "videoId": "ItISVW3o0X0"
+    }
+  ],
+  "recordings": [
+    {
+      "id": "altin-hizma",
+      "year": 2026,
+      "displayDate": "2026",
+      "artist": "Batuhan Aydın & Jülide Özçelik",
+      "title": "Altın Hızma",
+      "type": "Single",
+      "role": "Mixing",
+      "url": "https://open.spotify.com/intl-tr/track/6IXet4bhMDqmcWUEo53ABP"
+    },
+    {
+      "id": "homewards",
+      "year": 2026,
+      "displayDate": "2026",
+      "artist": "Batuhan Aydın & Jülide Özçelik",
+      "title": "Homewards",
+      "type": "Album",
+      "role": "Mixing",
+      "url": "https://batuhanaydin.bandcamp.com/"
+    },
+    {
+      "id": "dilerim-ki",
+      "year": 2026,
+      "displayDate": "2026",
+      "artist": "Dolu Kadehi Ters Tut",
+      "title": "Dilerim Ki (Live @ Bostancı)",
+      "type": "Live",
+      "role": "Live mixing",
+      "url": "https://www.youtube.com/watch?v=87Yj3G9kWgg"
+    },
+    {
+      "id": "duman-kufi",
+      "year": 2024,
+      "displayDate": "2024",
+      "artist": "Duman",
+      "title": "Kufi",
+      "type": "Album",
+      "role": "Recording",
+      "url": "https://open.spotify.com/album/3FpJOsSnsSziu7JFmAzRPc"
+    },
+    {
+      "id": "mahzuni",
+      "year": 2022,
+      "displayDate": "2022",
+      "artist": "Kaan Tangöze",
+      "title": "Aşık Mahzuni Şerif Türküleri",
+      "type": "Album · 10 tracks",
+      "role": "Recording & Mixing",
+      "url": "https://dumanlive.com/album/ask-mahzuni-serif-turkuleri",
+      "tracks": [
+        "Haşlayın Beni",
+        "Çeşmi Siyahım",
+        "Divane Ettim Aklımı",
+        "Boşu Boşuna",
+        "Gizli Gizli",
+        "Gül Yüzlü Cananım",
+        "Mervanın Dölü",
+        "Doktor",
+        "Sofu Baba",
+        "Yaralandım Yaralıyım"
+      ]
+    },
+    {
+      "id": "aylin-aslim-geciyorum",
+      "year": 2020,
+      "displayDate": "2020",
+      "artist": "Aylin Aslım & AH! Kosmos",
+      "title": "Geçiyorum",
+      "type": "Compilation track",
+      "role": "Mixing",
+      "url": "https://www.berkkula.work/recordings"
+    },
+    {
+      "id": "ceylan-ertem-ilan-i-ask",
+      "year": 2018,
+      "displayDate": "2018",
+      "artist": "Ceylan Ertem",
+      "title": "İlan-ı Aşk",
+      "type": "Compilation track",
+      "role": "Mixing",
+      "url": "https://www.berkkula.work/recordings"
+    },
+    {
+      "id": "pinhani-on-turku",
+      "year": 2018,
+      "artist": "Pinhani",
+      "title": "On Türkü",
+      "type": "Album",
+      "role": "Mixing · Tracks 1 & 2",
+      "url": "https://www.discogs.com/release/11694432-Pinhani-On-T%C3%BCrk%C3%BC"
+    },
+    {
+      "id": "ceylan-yuh",
+      "year": 2015,
+      "artist": "Ceyl’an Ertem",
+      "title": "Yuh!",
+      "type": "Album",
+      "role": "Mixing · All tracks",
+      "url": "https://www.discogs.com/release/8844721-Ceylan-Ertem-Yuh"
+    },
+    {
+      "id": "ceylan-amansiz",
+      "year": 2014,
+      "artist": "Ceyl’an Ertem",
+      "title": "Amansız Gücenik",
+      "type": "Album",
+      "role": "Mixing · All tracks",
+      "url": "https://www.discogs.com/release/6586483-Ceylan-Ertem-Amans%C4%B1z-G%C3%BCcenik"
+    },
+    {
+      "id": "ayhan-rengarenk",
+      "year": 2013,
+      "artist": "Ayhan Günyıl",
+      "title": "Rengarenk",
+      "type": "Album",
+      "role": "Recording · All tracks / Mixing · Tracks 2, 5 & 8",
+      "url": "https://www.berkkula.work/recordings"
+    },
+    {
+      "id": "marsis-zamani-geldi",
+      "year": 2012,
+      "artist": "Marsis",
+      "title": "Zamanı Geldi",
+      "type": "Album",
+      "role": "Recording · Drums & bass / Mixing · All tracks",
+      "url": "https://www.berkkula.work/recordings"
+    },
+    {
+      "id": "kres-ciplak",
+      "year": 2011,
+      "displayDate": "2011",
+      "artist": "Kreş",
+      "title": "Çıplak",
+      "type": "Album",
+      "role": "Recording & Mixing · Arrangement (with Kreş & Ali Güçlü Şimşek)",
+      "url": "https://www.berkkula.work/recordings"
+    },
+    {
+      "id": "model-diger-masallar",
+      "year": 2011,
+      "artist": "Model",
+      "title": "Diğer Masallar",
+      "type": "Album",
+      "role": "Recording · All guitars",
+      "url": "https://www.discogs.com/release/2768957-Model-Di%C4%9Fer-Masallar"
+    },
+    {
+      "id": "soundtrack-ask-tesadufleri",
+      "year": 2011,
+      "artist": "Various Artists",
+      "title": "Aşk Tesadüfleri Sever — Original Film Soundtrack",
+      "type": "Soundtrack",
+      "role": "Recording · Track 8, Ozan Ünlü – Ankara Rüzgarı",
+      "url": "https://www.berkkula.work/recordings"
+    },
+    {
+      "id": "multitap-takim-oyunu",
+      "year": 2010,
+      "artist": "Multitap",
+      "title": "Takım Oyunu",
+      "type": "Album",
+      "role": "Mixing · All tracks",
+      "url": "https://www.discogs.com/release/5464462-Multitap-Tak%C4%B1m-Oyunu"
+    },
+    {
+      "id": "cagri-sertel-newborn",
+      "year": 2010,
+      "artist": "Çağrı Sertel Trio",
+      "title": "Newborn",
+      "type": "Album",
+      "role": "Recording · All tracks (with Alp Turaç)",
+      "url": "https://www.discogs.com/release/11663972-%C3%87a%C4%9Fr%C4%B1-Sertel-Trio-Newborn"
+    },
+    {
+      "id": "cilekes-histeri",
+      "year": 2010,
+      "displayDate": "2010",
+      "artist": "Çilekeş",
+      "title": "Histeri Çalışmaları",
+      "type": "Album",
+      "role": "Recording & Mixing · Co-production (with Ali Güçlü Şimşek)",
+      "url": "https://www.berkkula.work/recordings"
+    },
+    {
+      "id": "dolapdere-just-feel",
+      "year": 2009,
+      "artist": "Dolapdere Big Gang",
+      "title": "Just Feel",
+      "type": "Album",
+      "role": "Recording · All tracks (with Alp Turaç, Baran Atasoy & Mehmet Cem Ünal)",
+      "url": "https://www.berkkula.work/recordings"
+    },
+    {
+      "id": "model-perili-sirk",
+      "year": 2009,
+      "artist": "Model",
+      "title": "Perili Sirk",
+      "type": "EP",
+      "role": "Recording · All tracks (with Alp Turaç)",
+      "url": "https://www.discogs.com/release/5699084-Model-Perili-Sirk"
+    },
+    {
+      "id": "sifir-km",
+      "year": 2009,
+      "artist": "Sıfır KM",
+      "title": "Albüm",
+      "type": "Album",
+      "role": "Recording · All tracks",
+      "url": "https://www.discogs.com/release/2820801-S%C4%B1f%C4%B1r-KM-Alb%C3%BCm"
+    },
+    {
+      "id": "teoman-insanlik",
+      "year": 2009,
+      "artist": "Teoman",
+      "title": "İnsanlık Halleri",
+      "type": "Album",
+      "role": "Recording · All tracks (with Alper Gemici & Mehmet Cem Ünal)",
+      "url": "https://www.discogs.com/release/2604629-Teoman-%C4%B0nsanl%C4%B1k-Halleri"
+    },
+    {
+      "id": "sebnem-benim-adim-orman",
+      "year": 2009,
+      "artist": "Şebnem Ferah",
+      "title": "Benim Adım Orman",
+      "type": "Album",
+      "role": "Recording · All tracks (with Alp Turaç)",
+      "url": "https://www.discogs.com/release/2138203-%C5%9Eebnem-Ferah-Benim-Ad%C4%B1m-Orman"
+    },
+    {
+      "id": "ozan-coincidence",
+      "year": 2008,
+      "artist": "Ozan Musluoğlu",
+      "title": "Coincidence",
+      "type": "Album",
+      "role": "Assistant Recording · All tracks",
+      "url": "https://www.berkkula.work/recordings"
+    },
+    {
+      "id": "teoman-soz-muzik",
+      "year": 2008,
+      "artist": "Teoman",
+      "title": "Söz Müzik Teoman",
+      "type": "Album",
+      "role": "Recording · Track 11 (with Mehmet Cem Ünal)",
+      "url": "https://www.berkkula.work/recordings"
+    },
+    {
+      "id": "cilekes-katil-dans",
+      "year": 2008,
+      "artist": "Çilekeş",
+      "title": "Katil Dans",
+      "type": "Album",
+      "role": "Recording & Mixing · All tracks (with Tarkan Gözübüyük)",
+      "url": "https://www.discogs.com/release/10941861-%C3%87ileke%C5%9F-Katil-Dans"
+    },
+    {
+      "id": "demir-ates-yagmurunda",
+      "year": 2007,
+      "artist": "Demir Demirkan",
+      "title": "Ateş Yağmurunda Çırılçıplak",
+      "type": "Album",
+      "role": "Assistant Engineer",
+      "url": "https://www.discogs.com/release/3066202-Demir-Demirkan-Ate%C5%9F-Ya%C4%9Fmurunda-%C3%87%C4%B1r%C4%B1l%C3%A7%C4%B1plak"
+    },
+    {
+      "id": "gokce-bogurtlen",
+      "year": 2007,
+      "artist": "Gökçe",
+      "title": "Böğürtlenli Reçel",
+      "type": "Album",
+      "role": "Assistant Engineer",
+      "url": "https://www.discogs.com/release/5697677-G%C3%B6k%C3%A7e-B%C3%B6%C4%9F%C3%BCrtlenli-Re%C3%A7el"
+    },
+    {
+      "id": "kres-zaman-yok",
+      "year": 2007,
+      "artist": "Kreş",
+      "title": "Zaman Yok!",
+      "type": "Album",
+      "role": "Recording · All tracks (with Tarkan Gözübüyük)",
+      "url": "https://www.discogs.com/release/7689302-Kre%C5%9F-Zaman-Yok"
+    },
+    {
+      "id": "sebnem-istanbul",
+      "year": 2007,
+      "artist": "Şebnem Ferah & İstanbul Symphonic Project",
+      "title": "10 Mart 2007 İstanbul Konseri",
+      "type": "Live album",
+      "role": "Assistant Engineer",
+      "url": "https://www.discogs.com/release/2616476-%C5%9Eebnem-Ferah-%C4%B0stanbul-Symphonic-Project-10-Mart-2007-%C4%B0stanbul-Konseri"
+    }
+  ]
+}

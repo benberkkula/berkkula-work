@@ -1,0 +1,42 @@
+name: Add concert
+description: Only repository-owner submissions trigger automatic updates.
+title: "[concert] "
+body:
+  - type: input
+    id: date
+    attributes:
+      label: Date (YYYY-MM-DD)
+      placeholder: "2026-11-21"
+    validations:
+      required: true
+  - type: input
+    id: artist
+    attributes:
+      label: Artist
+    validations:
+      required: true
+  - type: input
+    id: city
+    attributes:
+      label: City
+    validations:
+      required: true
+  - type: input
+    id: country
+    attributes:
+      label: Country code (TR / DE / etc.)
+      description: TR = Türkiye; other two-letter ISO codes = international.
+    validations:
+      required: true
+  - type: input
+    id: venue
+    attributes:
+      label: Venue (optional)
+    validations:
+      required: false
+  - type: input
+    id: role
+    attributes:
+      label: My role (FOH / Monitor / Mixing / etc.)
+    validations:
+      required: true
