@@ -398,3 +398,13 @@
 .about-services p{margin:0}
 .about-services strong{display:block;color:var(--ink);font-size:13px;font-weight:600;line-height:1.45}
 .about-services span{display:block;color:var(--muted);font-size:13px;line-height:1.6;margin-top:3px}
+
+/* Hero portrait starts at the headline, not at the bottom of the intro copy. */
+.intro-layout{align-items:start}
+.intro-aside{align-self:start;margin-top:43px}
+@media(max-width:650px){.intro-aside{margin-top:0}}
+/* About services: three distinct headings with their descriptions directly below. */
+.about-services{gap:18px}
+.about-services p{display:flex;flex-direction:column;gap:3px}
+.about-services strong{display:block;font-size:14px;line-height:1.4}
+.about-services span{display:block;margin:0;line-height:1.55}
