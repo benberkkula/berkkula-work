@@ -1,3 +1,6 @@
+const LANGUAGE_KEY='berkkula.language';
+function savedLanguage(){try{return localStorage.getItem(LANGUAGE_KEY)==='tr'?'tr':'en'}catch{return 'en'}}
+function rememberLanguage(lang){try{localStorage.setItem(LANGUAGE_KEY,lang)}catch{/* Storage may be unavailable. */}}
 const i18n={
   en:{
     photoLabel:'LIVE SOUND',navWork:'Work',navDiscography:'Discography',navVideos:'Video',navDates:'Dates',navAbout:'About',
@@ -29,6 +32,7 @@ const $=sel=>document.querySelector(sel);
 const getToday=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
 const locale=()=>state.lang==='tr'?'tr-TR':'en-GB';
 function setLanguage(lang){
+  rememberLanguage(lang);
   state.lang=lang;document.documentElement.lang=lang;
   document.querySelectorAll('[data-i18n]').forEach(node=>{const translated=i18n[lang][node.dataset.i18n];if(translated)node.textContent=translated;});
   $('#lang-switch').textContent=lang==='en'?'TR':'EN';
@@ -161,7 +165,7 @@ async function init(){
   $('#month-next').addEventListener('click',()=>{state.cursor=new Date(state.cursor.getFullYear(),state.cursor.getMonth()+1,1);renderCalendar()});
   $('#lang-switch').addEventListener('click',()=>setLanguage(state.lang==='en'?'tr':'en'));
   window.addEventListener('resize',markCollabLineStarts); 
-  renderCalendar();renderUpcoming();setLanguage('en');
+  renderCalendar();renderUpcoming();setLanguage(savedLanguage());
   try{const [siteRes,showsRes]=await Promise.all([fetch('data/site.json',{cache:'no-store'}),fetch('data/concerts.json',{cache:'no-store'})]);if(!siteRes.ok||!showsRes.ok)throw new Error('Unable to load site data');const [site,shows]=await Promise.all([siteRes.json(),showsRes.json()]);renderMix(site.latestMix);renderProjects(site.projects||[],site.artistSpotify||{});renderCollabs(site.collaborations||[],site.artistSpotify||{});renderVideos(site.videos||[]);state.recordings=site.recordings||[];renderRecordings();state.events=(shows.concerts||[]).map(normalizedEvent).filter(Boolean);renderCalendar();renderUpcoming()}catch(error){console.error(error);$('#upcoming-shows').replaceChildren(el('p','empty-dates',i18n[state.lang].err))}
 }
 init();
