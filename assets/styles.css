@@ -408,3 +408,11 @@
 .about-services p{display:flex;flex-direction:column;gap:3px}
 .about-services strong{display:block;font-size:14px;line-height:1.4}
 .about-services span{display:block;margin:0;line-height:1.55}
+
+/* About professional links: keep all four icons on a single, balanced row. */
+.about-details .profile-links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;justify-items:center}
+.about-details .profile-item{width:100%;max-width:94px;min-width:0}
+.about-details .profile-item .profile-icon{width:50px;height:50px}
+.about-details .profile-credential .profile-icon.profile-dante{width:50px;height:50px}
+.about-details .profile-credential .profile-dante img{width:47px;height:39px}
+@media(max-width:620px){.about-details .profile-links{gap:6px}.about-details .profile-item .profile-icon,.about-details .profile-credential .profile-icon.profile-dante{width:45px;height:45px}.about-details .profile-credential .profile-dante img{width:43px;height:36px}.about-details .profile-label{font-size:9px}}
