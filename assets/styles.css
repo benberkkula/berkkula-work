@@ -401,7 +401,7 @@
 
 /* Hero portrait starts at the headline, not at the bottom of the intro copy. */
 .intro-layout{align-items:start}
-.intro-aside{align-self:start;margin-top:43px}
+.intro-aside{align-self:start;margin-top:0;padding-top:0}
 @media(max-width:650px){.intro-aside{margin-top:0}}
 /* About services: three distinct headings with their descriptions directly below. */
 .about-services{gap:18px}
