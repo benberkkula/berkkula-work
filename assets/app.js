@@ -8,7 +8,7 @@ const i18n={
     archiveEyebrow:'RECENT & EARLIER WORK',archiveTitle:'Recording & mixing archive',allRecordings:'Full discography ↗',
     videosTitle:'Selected works',videosIntro:'Three selected live recording & mixing works.',
     datesTitle:'Upcoming dates',datesIntro:'Live schedule.',turkey:'Turkey',international:'International',scheduledShows:'NEXT PERFORMANCES',noConcerts:'New performance dates will be announced here.',
-    aboutTitle:'About',aboutLead:'Independent audio engineer working across live performance, studio recording and mixing since 2007.',aboutBody:'FOH and monitor engineering for tours and festivals. Studio recording and mixing from a private mix suite, with project sessions at various studios.',writeMe:'Get in touch ↗',
+    aboutTitle:'About',aboutLead:'Independent audio engineer working across live performance, studio recording and mixing since 2007.',aboutLiveTitle:'Live Sound Engineering',aboutLiveText:'FOH and monitor engineering for concerts, tours and festivals.',aboutMixTitle:'Mixing',aboutMixText:'Professional mixing services from my private mixing suite.',aboutStudioTitle:'Studio Recording',aboutStudioText:'Recording sessions and music productions at various professional studios.',writeMe:'Get in touch ↗',
     loadSpotify:'Load Spotify player ↗',spotifyPreviewLabel:'SPOTIFY AUDIO',err:'Schedule temporarily unavailable. Please check again later.'
   },
   tr:{
@@ -20,7 +20,7 @@ const i18n={
     archiveEyebrow:'YENİ & ESKİ ÇALIŞMALAR',archiveTitle:'Kayıt ve miks arşivi',allRecordings:'Tüm diskografi ↗',
     videosTitle:'Seçili çalışmalar',videosIntro:'Seçili üç canlı kayıt ve miks çalışması.',
     datesTitle:'Yaklaşan konserler',datesIntro:'Konser takvimi.',turkey:'Türkiye',international:'Yurtdışı',scheduledShows:'SIRADAKİ KONSERLER',noConcerts:'Yeni konser tarihleri burada yayınlanacak.',
-    aboutTitle:'Hakkında',aboutLead:'2007’den bu yana canlı ses, stüdyo kaydı ve miks alanlarında çalışan bağımsız ses mühendisi.',aboutBody:'Turneler ve festivaller için FOH ve monitör mühendisliği. Özel miks stüdyosunda kayıt ve miks; farklı stüdyolarda proje bazlı çalışmalar.',writeMe:'İletişime geç ↗',
+    aboutTitle:'Hakkında',aboutLead:'2007’den bu yana canlı ses, stüdyo kaydı ve miks alanlarında çalışan bağımsız ses mühendisi.',aboutLiveTitle:'Canlı Ses Mühendisliği',aboutLiveText:'Konser, turne ve festivallerde FOH ve monitör ses mühendisliği.',aboutMixTitle:'Miks',aboutMixText:'Kendi özel miks stüdyomda profesyonel miks hizmetleri.',aboutStudioTitle:'Stüdyo Kaydı',aboutStudioText:'Farklı profesyonel stüdyolarda kayıt seansları ve müzik prodüksiyonları.',writeMe:'İletişime geç ↗',
     loadSpotify:'Spotify oynatıcıyı aç ↗',spotifyPreviewLabel:'SPOTIFY SES',err:'Takvim geçici olarak yüklenemedi. Lütfen daha sonra tekrar deneyin.'
   }
 };
