@@ -166,6 +166,24 @@ async function init(){
   $('#lang-switch').addEventListener('click',()=>setLanguage(state.lang==='en'?'tr':'en'));
   window.addEventListener('resize',markCollabLineStarts); 
   renderCalendar();renderUpcoming();setLanguage(savedLanguage());
-  try{const [siteRes,showsRes]=await Promise.all([fetch('data/site.json',{cache:'no-store'}),fetch('data/concerts.json',{cache:'no-store'})]);if(!siteRes.ok||!showsRes.ok)throw new Error('Unable to load site data');const [site,shows]=await Promise.all([siteRes.json(),showsRes.json()]);renderMix(site.latestMix);renderProjects(site.projects||[],site.artistSpotify||{});renderCollabs(site.collaborations||[],site.artistSpotify||{});renderVideos(site.videos||[]);state.recordings=site.recordings||[];renderRecordings();state.events=(shows.concerts||[]).map(normalizedEvent).filter(Boolean);renderCalendar();renderUpcoming()}catch(error){console.error(error);$('#upcoming-shows').replaceChildren(el('p','empty-dates',i18n[state.lang].err))}
+  // Each data source is independent: a calendar outage must not hide portfolio content.
+  const loadJson=async url=>{const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw new Error(`Unable to load ${url} (HTTP ${response.status})`);return response.json()};
+  const [siteResult,showsResult]=await Promise.allSettled([loadJson('data/site.json'),loadJson('data/concerts.json')]);
+  if(siteResult.status==='fulfilled'){
+    const site=siteResult.value;
+    if(site.latestMix)renderMix(site.latestMix);
+    renderProjects(site.projects||[],site.artistSpotify||{});
+    renderCollabs(site.collaborations||[],site.artistSpotify||{});
+    renderVideos(site.videos||[]);
+    state.recordings=site.recordings||[];
+    renderRecordings();
+  }else{console.error('Site content unavailable:',siteResult.reason)}
+  if(showsResult.status==='fulfilled'){
+    state.events=(showsResult.value.concerts||[]).map(normalizedEvent).filter(Boolean);
+    renderCalendar();renderUpcoming();
+  }else{
+    console.error('Concert schedule unavailable:',showsResult.reason);
+    $('#upcoming-shows').replaceChildren(el('p','empty-dates',i18n[state.lang].err));
+  }
 }
 init();
