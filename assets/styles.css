@@ -425,5 +425,5 @@
 /* Final four-icon alignment: true 54px circles, centered Dante artwork. */
 .about-details .profile-item .profile-icon,
 .about-details .profile-credential .profile-icon.profile-dante{box-sizing:border-box;flex:0 0 54px;width:54px;height:54px;min-width:54px;min-height:54px;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;overflow:hidden}
-.about-details .profile-credential .profile-dante img{display:block;width:51px;height:46px;max-width:none;object-fit:contain;transform:translateX(-1px)}
+.about-details .profile-credential .profile-dante img{display:block;width:51px;height:46px;max-width:none;object-fit:contain;transform:translateX(-4px)}
 @media(max-width:620px){.about-details .profile-item .profile-icon,.about-details .profile-credential .profile-icon.profile-dante{flex-basis:48px;width:48px;height:48px;min-width:48px;min-height:48px}.about-details .profile-credential .profile-dante img{width:46px;height:41px}}
