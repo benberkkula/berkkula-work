@@ -196,7 +196,8 @@
       "artist": "Ayhan Günyıl",
       "title": "Rengarenk",
       "type": "Album",
-      "role": "Recording · All tracks / Mixing · Tracks 2, 5 & 8"
+      "role": "Recording · All tracks / Mixing · Tracks 2, 5 & 8",
+      "url": "https://open.spotify.com/album/6Ax93u2yVXJwzYI6JlL6i9"
     },
     {
       "id": "marsis-zamani-geldi",
@@ -204,7 +205,8 @@
       "artist": "Marsis",
       "title": "Zamanı Geldi",
       "type": "Album",
-      "role": "Recording · Drums & bass / Mixing · All tracks"
+      "role": "Recording · Drums & bass / Mixing · All tracks",
+      "url": "https://open.spotify.com/album/3mVqW9s0q5d6g1KxdfcyIr"
     },
     {
       "id": "kres-ciplak",
@@ -213,7 +215,8 @@
       "artist": "Kreş",
       "title": "Çıplak",
       "type": "Album",
-      "role": "Recording & Mixing · Arrangement (with Kreş & Ali Güçlü Şimşek)"
+      "role": "Recording & Mixing · Arrangement (with Kreş & Ali Güçlü Şimşek)",
+      "url": "https://open.spotify.com/album/6kztOmjZxVbnwwFwUmoyF5"
     },
     {
       "id": "model-diger-masallar",
@@ -267,7 +270,8 @@
       "artist": "Dolapdere Big Gang",
       "title": "Just Feel",
       "type": "Album",
-      "role": "Recording · All tracks (with Alp Turaç, Baran Atasoy & Mehmet Cem Ünal)"
+      "role": "Recording · All tracks (with Alp Turaç, Baran Atasoy & Mehmet Cem Ünal)",
+      "url": "https://open.spotify.com/album/5ZTWViP9irCm2UnSovw6yN"
     },
     {
       "id": "model-perili-sirk",
@@ -276,7 +280,7 @@
       "title": "Perili Sirk",
       "type": "EP",
       "role": "Recording · All tracks (with Alp Turaç)",
-      "url": "https://www.discogs.com/release/5699084-Model-Perili-Sirk"
+      "url": "https://open.spotify.com/album/6RBYVA2wRACy0PEY4phyyD"
     },
     {
       "id": "sifir-km",
@@ -330,7 +334,7 @@
       "title": "Katil Dans",
       "type": "Album",
       "role": "Recording & Mixing · All tracks (with Tarkan Gözübüyük)",
-      "url": "https://www.discogs.com/release/10941861-%C3%87ileke%C5%9F-Katil-Dans"
+      "url": "https://open.spotify.com/album/6Kf9Fqm9JOnjp3W0Wkca0i"
     },
     {
       "id": "demir-ates-yagmurunda",
@@ -357,7 +361,7 @@
       "title": "Zaman Yok!",
       "type": "Album",
       "role": "Recording · All tracks (with Tarkan Gözübüyük)",
-      "url": "https://www.discogs.com/release/7689302-Kre%C5%9F-Zaman-Yok"
+      "url": "https://open.spotify.com/album/6crsd9R1aoCsIqN2clUPou"
     },
     {
       "id": "sebnem-istanbul",
