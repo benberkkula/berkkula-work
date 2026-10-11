@@ -1,0 +1,23 @@
+name: Replace BK PNG favicon
+on:
+  push:
+    paths:
+      - '.github/workflows/replace-bk-favicon.yml'
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Write corrected PNG file
+        shell: bash
+        run: |
+          echo 'iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAIAAADYYG7QAAAF6UlEQVR42u1Y3UtUWxTfa++z54yNFAqaNXPLKyRzH3owoxsRfYBRFFhggpBEElgP4YuMSfQBfTwUSBD6B/QQRIhRFMElAg2kG6U4D9dM7UZKBUZKM6PNOfvjPqw6HefMODN1gx5mPQxzzll7n9/+rbV/a+0DWmvyKxklv5gVABUAFQD9bDPcF5k0CQAyjcchmRycCZeYIfVduQijUkopxRjLfV5Ek5d/GkBSyrT0UEodZM5/vHQYct930OCE6Obz+XIFhK+Zmpqqq6sTQgCAOxCMsdWrV2/btq21tTUYDKIz/ra0tAwMDBBCjh071tHRIaVkjOHCGGNHjhx5/PixYRimaT548CAYDObEmdZaSqm1npiYWNqzoqJicHAQ/XHIzp078VF7e7vW2rZtrbUQQmvd29vrDDx//rxzP6t9AzQ5Oenz+SiluEq3cc6R8FAoNDc3p5TCd+/Zs4dSSint7OxEQEopKeXc3FwoFGKMUUo3btyIC8DAZTXqTV6lVFlZ2aqvtmLFCtu2LcvinE9PT9+6dQsAlFLILvo7iYihPHPmzPT0NGZVT08PpTT3BKdpg3j37t3x8fEXL16MjY29fPmyu7vbMAyc9NGjR5nmwtR5+vRpT08P59y27ba2tk2bNgkhvKxnz6HJyUnD+CJL0Wg0hckDBw7go61btzrpsnv3brx58uRJrXUymRRC1NbW4qarrKyMxWK5BytNyNxrdYBaliWlrK2txUeWZWVam8/nu3bt2vPnzznnSqnu7u7i4uJ81Sh76cDpnEmXL1/u1XTk4NWrV2fPnjUMw7Kspqamffv25Rcsb+n4BpNSAMC5OOeEkKGhIYQVDoe9gJCGtra2eDzOGCstLb169WqKiv4QINu2hRBCCEppMpns6+u7d++eYRhCiIaGBm9tKisr6+/vv3//PubylStXKioqHJ38UUAAsH//ftM0cYnz8/Pv379H+W5oaNixY4d36a9fv75x4wYA2La9fv36o0ePYu37nnLv3WXeHDQMwzCM48ePozOqn7PLKKV+v98JdCAQiEajjk++llOMscD19/dfvnwZVc6dQwDw+fNnVEvGWCKRuHjxolMQ/x+GysvLQ6FQ8Ks5+kQIOX36NGqBwxCWCEJIdXU18mQYBpKUY/3KWMucFz958mR+fj4WiyUSiVgsNjo6irnMOWeMjY+P42AEhGWutbX17du3RUVFmDqNjY25F9TsgLxKbVlWZWUlpldXV5cbEABs3rx5YWFBa33ixAkH98jIyHeQlF2pEQ3nfPv27ag30Wg0Jei7du3y+/1KqUgksmzZMhx74cKF7+gYaSZ1dhsmcklJCb5+dnY2xT+ZTGKBW7NmzeHDh4UQnPPbt2+PjIxQStM2ovkB8jIJAB8+fMCnXoFxoGutI5GI3+9fiiStiVQkwx5MDwj7efwFANTfgYEBvFy5cmWmgqOUqqqqam5udkgaHh5eRJLWBIAwSgDSYkoPKJFI4P6Kx+OfPn0aGxtrbm5+8+YN51xrvWHDhiUqsda6o6PDNE1s3xaRpAkBsKdmE3/9Y0/NEgCicysd9fX1bu2ZmZnBui2l9Pv9e/fuzZgBlEop161b19TUdP36dc75nTt3hoaGampqpC0YNxb+/vdj10OdFGAape11RX/+TpQmFNIzRL/azMzMO5dJKbHdllJGIpFgMGjbtnP6wYqRQlJnZyfnHP9funQJAAgFonS8d5goxUoDRKl47/CXCKYNGW5vrEHeHLcsy7btlpaWc+fOSSlRmpPJJPbUiM+dSeFwuLGxEQW9r69vcHCQMaaIzqPa+3y+6upq97nMKbSBQCAcDh86dKi+vh53HDb5a9euraqqIoSUl5e7qzLOcOrUqWfPnmELcPPmzS1btgClxQdrPnY9lB8TYBrFB2sIAFGLSMp+cnXv85R+dImTq/sYAwBCCNM0iSYEiD01a42+8/2xiv9WgnfyPts7WPNqcdJ30+6k8SRQKqCf9/VjkY/WX3ZWulFQ+CxcAFQAVABUALTY/gNXd31e4OFFcwAAAABJRU5ErkJggg==' | base64 --decode > assets/favicon-48x48.png
+      - name: Commit updated image
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/favicon-48x48.png
+          git diff --cached --quiet || (git commit -m "Fix BK favicon clipping at small sizes" && git push)
