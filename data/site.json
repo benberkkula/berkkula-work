@@ -85,6 +85,42 @@
   ],
   "recordings": [
     {
+      "id": "evrencan-anadolu-funk-vol-1",
+      "year": 2021,
+      "artist": "Evrencan Gündüz",
+      "title": "Anadolu Funk, Vol. 1",
+      "type": "EP",
+      "role": "Mixing",
+      "url": "https://open.spotify.com/album/38VA8xuFPTBOWroGsu3mnB"
+    },
+    {
+      "id": "mabel-matiz-maya",
+      "year": 2018,
+      "artist": "Mabel Matiz",
+      "title": "Maya",
+      "type": "Album",
+      "role": "Mixing",
+      "url": "https://open.spotify.com/album/1SjI5mOEGsnrfHRR4zY88f"
+    },
+    {
+      "id": "yoks-beklenen",
+      "year": 2016,
+      "artist": "Yok Öyle Kararlı Şeyler",
+      "title": "Beklenen",
+      "type": "Album",
+      "role": "Mixing",
+      "url": "https://open.spotify.com/album/5QpZLXy4I7T2MLrJDt6IBu"
+    },
+    {
+      "id": "ercument-orkut-low-profile",
+      "year": 2015,
+      "artist": "Ercüment Orkut",
+      "title": "Low Profile",
+      "type": "Album",
+      "role": "Mixing",
+      "url": "https://music.apple.com/us/album/low-profile-feat-sarp-maden-volkan-%C3%B6ktem-alper-yilmaz/982581218"
+    },
+    {
       "id": "altin-hizma",
       "year": 2026,
       "displayDate": "2026",
