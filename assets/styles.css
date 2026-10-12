@@ -422,9 +422,6 @@
 .about-details .profile-credential .profile-dante img{display:block;width:51px;height:46px;max-width:none;object-fit:contain;transform:translate(-3px,-1px)}
 @media(max-width:620px){.about-details .profile-item .profile-icon,.about-details .profile-credential .profile-icon.profile-dante{flex-basis:48px;width:48px;height:48px;min-width:48px;min-height:48px}.about-details .profile-credential .profile-dante img{width:46px;height:41px}}
 
-/* Latest Mix: open the compact Spotify player within the original credit card. */
-.latest-mix-player{width:100%;min-width:0;margin-top:16px}
-.latest-mix-player[hidden]{display:none}
+/* Latest Mix: Spotify player is immediately visible, within the existing credit card. */
+.latest-mix-player{width:100%;min-width:0;margin-top:auto;padding-top:18px}
 .latest-mix-frame{display:block;width:100%;height:152px;border:0;border-radius:12px;background:#191414}
-.latest-mix-open-spotify{display:inline-block;margin-top:11px;color:#4b5452;font-size:11px;text-decoration:underline;text-underline-offset:4px}
-.latest-mix-open-spotify:hover{color:#181a1a}
