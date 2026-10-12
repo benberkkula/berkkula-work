@@ -50,10 +50,13 @@ function renderProjects(projects,profiles){const root=$('#core-projects');root.r
 function markCollabLineStarts(){
   const root=$('#collab-list');
   if(!root)return;
+  // Read every position before changing classes to avoid repeated forced layouts.
+  const items=[...root.children];
+  const tops=items.map(item=>item.getBoundingClientRect().top);
   let previousTop=null;
-  for(const item of root.children){
-    const top=item.getBoundingClientRect().top;
-    item.classList.toggle('line-start',previousTop===null||top>previousTop+2);
+  for(let i=0;i<items.length;i++){
+    const top=tops[i];
+    items[i].classList.toggle('line-start',previousTop===null||top>previousTop+2);
     previousTop=top;
   }
 }
