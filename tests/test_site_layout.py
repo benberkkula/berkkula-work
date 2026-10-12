@@ -29,7 +29,7 @@ class SiteLayoutTests(unittest.TestCase):
         html = (ROOT / 'recordings.html').read_text()
         page = PageInspector(); page.feed(html)
         self.assertIn('mixes', page.sections)
-        self.assertIn('id="discography-player"', html)
+        self.assertIn('https://open.spotify.com/embed/playlist/7EuvD5Wx31tUKowpDn9pw0', html)
         self.assertIn('id="recordings-all"', html)
         self.assertIn('data-filter="mix"', html)
         self.assertIn('data-filter="recording"', html)
