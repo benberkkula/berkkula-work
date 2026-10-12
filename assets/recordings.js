@@ -5,7 +5,10 @@ const T={
   en:{work:'Work',mixes:'Mixes',dates:'Dates',about:'About',back:'← Back to selected work',title:'Recording & mixing.',intro:'Albums, EPs, singles and live recordings. Each credit specifies the work completed, including selected tracks when relevant.',oldArchive:'Original discography 2007–2022 ↗',portfolio:'Portfolio PDF ↗',spotlightTitle:'Listen to selected works.',spotlightIntro:'Three featured albums from the recording and mixing discography.',selectedKufiRole:'Recording',selectedMahzuniRole:'Recording & Mixing',selectedHomewardsRole:'Mixing',selectedFullDiscography:'Explore all 30 recordings ↗',mixCredit:'MIXING',openSpotify:'Listen on Spotify ↗',playSpotify:'Load Spotify player ↗',listLabel:'02 / RECORDING & MIXING',listTitle:'Recording & mixing archive',filterAll:'All',filterAlbum:'Albums',filterMix:'Mixing',filterRec:'Recording',footnote:'More credits are documented in the original discography, including releases with artwork-only titles. The list here includes identified works.'},
   tr:{work:'İşler',mixes:'Miksler',dates:'Takvim',about:'Hakkında',back:'← Seçili işlere dön',title:'Kayıt ve miks.',intro:'Albümler, EP’ler, tekliler ve canlı kayıtlar. Her eserdeki katkı ve varsa şarkı numaraları ayrı ayrı belirtilmiştir.',oldArchive:'2007–2022 orijinal diskografi ↗',portfolio:'Portfolyo PDF ↗',spotlightTitle:'Seçili çalışmaları dinleyin.',spotlightIntro:'Kayıt ve miks diskografisinden üç seçili albüm.',selectedKufiRole:'Recording',selectedMahzuniRole:'Recording & Mixing',selectedHomewardsRole:'Mixing',selectedFullDiscography:'30 kaydın tamamını keşfet ↗',mixCredit:'MIXING',openSpotify:'Spotify’da dinle ↗',playSpotify:'Spotify oynatıcıyı aç ↗',listLabel:'02 / KAYIT & MİKS',listTitle:'Kayıt ve miks arşivi',filterAll:'Tümü',filterAlbum:'Albümler',filterMix:'Miks',filterRec:'Kayıt',footnote:'Orijinal diskografide, ismi yalnızca kapakta bulunan başka çalışmalar da yer alıyor. Burada adı doğrulanabilen işler listeleniyor.'}
 };
-const state={lang:savedLanguage(),filter:'all',records:[],latestMix:null};
+function initialRecords(){
+  try{const records=JSON.parse(document.getElementById('recordings-data')?.textContent||'[]');return Array.isArray(records)?records:[]}catch{return []}
+}
+const state={lang:savedLanguage(),filter:'all',records:initialRecords(),latestMix:null};
 const el=(t,c,txt)=>{const e=document.createElement(t);if(c)e.className=c;if(txt!==undefined)e.textContent=txt;return e};
 function spotifyTrackId(mix){
   for(const value of [mix.spotifyUrl,mix.url]){
@@ -83,4 +86,5 @@ document.getElementById('year').textContent=new Date().getFullYear();
 document.getElementById('lang-switch').addEventListener('click',()=>{state.lang=state.lang==='en'?'tr':'en';rememberLanguage(state.lang);update()});
 document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{state.filter=b.dataset.filter;update()}));
 update();
-fetch('data/site.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Failed to load');return r.json()}).then(data=>{state.records=data.recordings||[];state.latestMix=data.latestMix||null;update()}).catch(err=>{console.error(err);const p=el('p','empty-dates','Records are temporarily unavailable.');document.getElementById('recordings-all').append(p)});
+fetch('data/site.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Failed to load');return r.json()}).then(data=>{if(Array.isArray(data.recordings))state.records=data.recordings;state.latestMix=data.latestMix||null;update()}).catch(err=>{console.error(err);if(!state.records.length){const p=el('p','empty-dates','Records are temporarily unavailable.');document.getElementById('recordings-all').append(p)}});
+

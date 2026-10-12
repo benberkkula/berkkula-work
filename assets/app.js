@@ -164,7 +164,8 @@ async function init(){
   $('#month-prev').addEventListener('click',()=>{state.cursor=new Date(state.cursor.getFullYear(),state.cursor.getMonth()-1,1);renderCalendar()});
   $('#month-next').addEventListener('click',()=>{state.cursor=new Date(state.cursor.getFullYear(),state.cursor.getMonth()+1,1);renderCalendar()});
   $('#lang-switch').addEventListener('click',()=>setLanguage(state.lang==='en'?'tr':'en'));
-  window.addEventListener('resize',markCollabLineStarts); 
+  window.addEventListener('resize',markCollabLineStarts);
+  requestAnimationFrame(markCollabLineStarts);
   renderCalendar();renderUpcoming();setLanguage(savedLanguage());
   // Each data source is independent: a calendar outage must not hide portfolio content.
   const loadJson=async url=>{const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw new Error(`Unable to load ${url} (HTTP ${response.status})`);return response.json()};

@@ -24,6 +24,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
+      - name: Generate initial artist and recording content
+        run: node scripts/build_static_content.mjs
       - name: Build link preview image
         run: |
           python3 -m pip install --disable-pip-version-check pillow
@@ -34,3 +36,4 @@ jobs:
           path: .
       - id: deployment
         uses: actions/deploy-pages@v4
+

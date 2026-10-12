@@ -130,3 +130,7 @@ node --check assets/app.js
 - `data/site.json` includes all release names that could be reliably identified from the former Wix discography text and independent catalog records. Some older artwork-only source entries cannot be identified by title from the page text and must be reviewed before being added; do not advertise this as an exhaustive archive.
 - Added album-only filtering, visible counts and all preserved mixing/recording role details.
 - The About portrait uses a specifically blue (#79ade0) 6 px border and a pale-blue 5 px halo.
+
+## Initial HTML content
+
+Artist projects, collaborations and recording credits are generated from `data/site.json` by `node scripts/build_static_content.mjs`. Run it after editing that JSON for a local preview; the Pages deployment runs it automatically before publishing. Do not edit the generated `static:*` blocks manually. The existing classes, links and ordering are preserved. Recording filters and language switching progressively enhance the initial list; generated bootstrap data keeps them usable if the JSON request fails.
