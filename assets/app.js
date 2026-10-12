@@ -5,7 +5,7 @@ const i18n={
   en:{
     photoLabel:'LIVE SOUND',navWork:'Work',navDiscography:'Discography',navVideos:'Video',navDates:'Dates',navAbout:'About',
     introLabel:'ISTANBUL · INTERNATIONAL',introText:'Live sound, recording and mixing. A focused approach to sound, in the studio and on stage.',seeWork:'Selected work ↗',contact:'Get in touch',cvLink:'CV ↗',portfolioLink:'Portfolio PDF ↗',portraitTitle:'Audio engineer',portraitBody:'Live sound and studio work across concerts, records and touring productions.',
-    selectedWork:'Selected credits',selectedIntro:'A selection of recording and mixing credits.',latestMix:'LATEST MIX',listen:'Listen',hideLatestMix:'Hide player',openSpotifyLatest:'Open in Spotify ↗',albumCredit:'ALBUMS — RECORDING / MIXING',albumLink:'Explore recordings ↗',discographyCardTitle:'Discography',discographyCardBody:'Selected albums and singles — recording & mixing credits · 2007–2026',liveCredit:'LIVE RECORDING / MIXING',watchVideo:'Watch video ↗',
+    selectedWork:'Selected credits',selectedIntro:'A selection of recording and mixing credits.',latestMix:'LATEST MIX',listen:'Listen',albumCredit:'ALBUMS — RECORDING / MIXING',albumLink:'Explore recordings ↗',discographyCardTitle:'Discography',discographyCardBody:'Selected albums and singles — recording & mixing credits · 2007–2026',liveCredit:'LIVE RECORDING / MIXING',watchVideo:'Watch video ↗',
     ongoingTitle:'Core live projects',rolesLabel:'Roles & years',collabsTitle:'Selected collaborations',collabsIntro:'Selected artists from live and studio projects.',
     mixesTitle:'Mixes',mixesIntro:'Latest mix on Spotify, followed by a dated selection of earlier recording and mixing work.',mixPlayerLabel:'CURRENT MIX SPOTLIGHT',openMix:'Watch on YouTube ↗',mixUpdateTitle:'IN THE ARCHIVE',mixUpdateBody:'Albums, singles and live recordings, organized by release year.',docLinksTitle:'DOCUMENTS',audioFallback:'Listen on Spotify. Playback availability depends on Spotify.',playLatest:'Play latest mix',
     archiveEyebrow:'RECENT & EARLIER WORK',archiveTitle:'Recording & mixing archive',allRecordings:'Full discography ↗',
@@ -17,7 +17,7 @@ const i18n={
   tr:{
     photoLabel:'KONSER SESİ',navWork:'İşler',navDiscography:'Diskografi',navVideos:'Video',navDates:'Takvim',navAbout:'Hakkında',
     introLabel:'İSTANBUL · ULUSLARARASI',introText:'Konser ses mühendisliği, kayıt ve miks. Stüdyoda ve sahnede müziğe odaklanan bir yaklaşım.',seeWork:'Seçili işler ↗',contact:'İletişime geç',cvLink:'CV ↗',portfolioLink:'Portfolyo PDF ↗',portraitTitle:'Ses mühendisi',portraitBody:'Konser, kayıt ve turne prodüksiyonlarında canlı ses ve stüdyo çalışmaları.',
-    selectedWork:'Seçili referanslar',selectedIntro:'Kayıt ve miks çalışmalarından bir seçki.',latestMix:'SON MİKS',listen:'Dinle',hideLatestMix:'Oynatıcıyı kapat',openSpotifyLatest:'Spotify’da aç ↗',albumCredit:'ALBÜMLER — KAYIT / MİKS',albumLink:'Diskografiye git ↗',discographyCardTitle:'Diskografi',discographyCardBody:'Seçili albüm ve tekliler — kayıt ve miks kredileri · 2007–2026',liveCredit:'CANLI KAYIT / MİKS',watchVideo:'Videoyu izle ↗',
+    selectedWork:'Seçili referanslar',selectedIntro:'Kayıt ve miks çalışmalarından bir seçki.',latestMix:'SON MİKS',listen:'Dinle',albumCredit:'ALBÜMLER — KAYIT / MİKS',albumLink:'Diskografiye git ↗',discographyCardTitle:'Diskografi',discographyCardBody:'Seçili albüm ve tekliler — kayıt ve miks kredileri · 2007–2026',liveCredit:'CANLI KAYIT / MİKS',watchVideo:'Videoyu izle ↗',
     ongoingTitle:'Süregelen sahne projeleri',rolesLabel:'Görevler ve yıllar',collabsTitle:'Seçili iş birlikleri',collabsIntro:'Sahne ve stüdyo projelerinden seçili sanatçılar.',
     mixesTitle:'Miksler',mixesIntro:'Spotify’da son miks; altında tarihli eski kayıt ve miks çalışmaları.',mixPlayerLabel:'GÜNCEL MİKS SPOTU',openMix:'YouTube’da izle ↗',mixUpdateTitle:'ARŞİVDE',mixUpdateBody:'Albümler, tekliler ve canlı kayıtlar yayın yılına göre sıralanır.',docLinksTitle:'DOKÜMANLAR',audioFallback:'Spotify’da dinle. Tam oynatma için Spotify gerekebilir.',playLatest:'Son miksi oynat',
     archiveEyebrow:'YENİ & ESKİ ÇALIŞMALAR',archiveTitle:'Kayıt ve miks arşivi',allRecordings:'Tüm diskografi ↗',
@@ -36,7 +36,7 @@ function setLanguage(lang){
   state.lang=lang;document.documentElement.lang=lang;
   document.querySelectorAll('[data-i18n]').forEach(node=>{const translated=i18n[lang][node.dataset.i18n];if(translated)node.textContent=translated;});
   $('#lang-switch').textContent=lang==='en'?'TR':'EN';
-  renderCalendar();renderUpcoming();renderLatestDate();renderRecordings();if(state.latestMix)renderMixPlayer(state.latestMix);syncLatestMixToggle();
+  renderCalendar();renderUpcoming();renderLatestDate();renderRecordings();if(state.latestMix)renderMixPlayer(state.latestMix);
 }
 const el=(tag,cls,text)=>{const node=document.createElement(tag);if(cls)node.className=cls;if(text!==undefined)node.textContent=text;return node};
 function artistSpotifyLink(name, profiles){
@@ -60,18 +60,23 @@ function markCollabLineStarts(){
 function renderCollabs(names,profiles){const root=$('#collab-list');root.replaceChildren();names.forEach(name=>{const item=el('span');item.append(artistSpotifyLink(name,profiles));root.append(item)});requestAnimationFrame(markCollabLineStarts)}
 function renderLatestDate(){const target=$('#latest-mix-date');if(target.dataset.displayDate){target.textContent=target.dataset.displayDate;return}if(target.dataset.iso){const parts=target.dataset.iso.split('-').map(Number);target.textContent=new Intl.DateTimeFormat(locale(),{day:'numeric',month:'long',year:'numeric'}).format(new Date(parts[0],parts[1]-1,parts[2]))}}
 function renderMix(mix){
-  if(state.latestMix && spotifyTrackId(state.latestMix)!==spotifyTrackId(mix))closeLatestMix();
   state.latestMix=mix;
   $('#latest-mix-title').textContent=mix.title;
   $('#latest-mix-artist').textContent=mix.artist;
   $('#latest-mix-date').dataset.iso=mix.date;
   $('#latest-mix-date').dataset.displayDate=mix.displayDate||'';
-  if(/^https:\/\//.test(mix.spotifyUrl||mix.url)){$('#latest-mix-link').href=mix.spotifyUrl||mix.url;$('#latest-mix-spotify-link').href=mix.spotifyUrl||mix.url;}
+  const trackId=spotifyTrackId(mix);
+  if(trackId){
+    const frame=$('#latest-mix-frame');
+    const src=`https://open.spotify.com/embed/track/${trackId}?utm_source=generator&theme=0`;
+    if(frame.getAttribute('src')!==src)frame.src=src;
+    frame.title=`Spotify — ${mix.artist} — ${mix.title}`;
+  }
   const titleNode=$('#mix-section-title'), artistNode=$('#mix-section-artist'), linkNode=$('#mix-section-link');
   if(titleNode) titleNode.textContent=mix.title;
   if(artistNode) artistNode.textContent=mix.artist + (mix.role?` · ${mix.role}`:'');
   if(linkNode && /^https:\/\//.test(mix.url)) linkNode.href=mix.url;
-  renderLatestDate();renderMixPlayer(mix);syncLatestMixToggle();
+  renderLatestDate();renderMixPlayer(mix);
 }
 function spotifyTrackId(mix){
   for(const value of [mix.spotifyUrl,mix.url]){
@@ -84,35 +89,6 @@ function spotifyTrackId(mix){
     }catch{}
   }
   return null;
-}
-function syncLatestMixToggle(){
-  const panel=$('#latest-mix-player'),trigger=$('#latest-mix-link');
-  trigger.textContent=i18n[state.lang][panel.hidden?'listen':'hideLatestMix'];
-  trigger.setAttribute('aria-expanded',String(!panel.hidden));
-  $('#latest-mix-spotify-link').textContent=i18n[state.lang].openSpotifyLatest;
-}
-function closeLatestMix(){
-  $('#latest-mix-player').hidden=true;
-  $('#latest-mix-embed').replaceChildren();
-  syncLatestMixToggle();
-}
-function toggleLatestMix(event){
-  const trigger=$('#latest-mix-link');
-  const mix=state.latestMix||{title:'Altın Hızma',artist:'Batuhan Aydın & Jülide Özçelik',spotifyUrl:trigger.href};
-  const trackId=spotifyTrackId(mix);
-  if(!trackId)return; // Without an embeddable track, preserve the ordinary Spotify link.
-  event.preventDefault();
-  const panel=$('#latest-mix-player');
-  if(!panel.hidden){closeLatestMix();return}
-  const frame=el('iframe','latest-mix-frame');
-  frame.src=`https://open.spotify.com/embed/track/${trackId}?utm_source=generator&theme=0`;
-  frame.title=`Spotify — ${mix.artist} — ${mix.title}`;
-  frame.allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
-  frame.loading='lazy';
-  frame.height='152';
-  $('#latest-mix-embed').replaceChildren(frame);
-  panel.hidden=false;
-  syncLatestMixToggle();
 }
 function renderMixPlayer(mix){
   const shell=$('#mix-player-shell');if(!shell)return;shell.replaceChildren();
@@ -194,7 +170,6 @@ async function init(){
   $('#month-prev').addEventListener('click',()=>{state.cursor=new Date(state.cursor.getFullYear(),state.cursor.getMonth()-1,1);renderCalendar()});
   $('#month-next').addEventListener('click',()=>{state.cursor=new Date(state.cursor.getFullYear(),state.cursor.getMonth()+1,1);renderCalendar()});
   $('#lang-switch').addEventListener('click',()=>setLanguage(state.lang==='en'?'tr':'en'));
-  $('#latest-mix-link').addEventListener('click',toggleLatestMix);
   window.addEventListener('resize',markCollabLineStarts);
   requestAnimationFrame(markCollabLineStarts);
   renderCalendar();renderUpcoming();setLanguage(savedLanguage());
