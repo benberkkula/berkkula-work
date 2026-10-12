@@ -36,6 +36,11 @@ function setLanguage(lang){
   state.lang=lang;document.documentElement.lang=lang;
   document.querySelectorAll('[data-i18n]').forEach(node=>{const translated=i18n[lang][node.dataset.i18n];if(translated)node.textContent=translated;});
   $('#lang-switch').textContent=lang==='en'?'TR':'EN';
+  $('#lang-switch').setAttribute('aria-label',lang==='en'?'TR — Switch to Turkish':'EN — İngilizceye geç');
+  $('#month-prev').setAttribute('aria-label',lang==='en'?'Previous month':'Önceki ay');
+  $('#month-next').setAttribute('aria-label',lang==='en'?'Next month':'Sonraki ay');
+  $('.calendar').setAttribute('aria-label',lang==='en'?'Concert calendar':'Konser takvimi');
+  document.querySelectorAll('.video-thumb').forEach(button=>button.setAttribute('aria-label',`${lang==='en'?'Play':'Oynat'} ${button.querySelector('img').alt}`));
   renderCalendar();renderUpcoming();renderLatestDate();renderRecordings();if(state.latestMix)renderMixPlayer(state.latestMix);
 }
 const el=(tag,cls,text)=>{const node=document.createElement(tag);if(cls)node.className=cls;if(text!==undefined)node.textContent=text;return node};
@@ -131,7 +136,7 @@ function renderVideos(videos){
     if(!/^[A-Za-z0-9_-]{11}$/.test(vid.videoId))return;
     const article=el('article','video-card');
     const frame=el('div','video-frame');
-    const button=el('button','video-thumb');button.type='button';button.setAttribute('aria-label',`Play ${vid.artist} – ${vid.title}`);
+    const button=el('button','video-thumb');button.type='button';button.setAttribute('aria-label',`${state.lang==='en'?'Play':'Oynat'} ${vid.artist} – ${vid.title}`);
     const img=el('img');img.src=`https://i.ytimg.com/vi/${vid.videoId}/hqdefault.jpg`;img.alt=`${vid.artist} – ${vid.title}`;img.loading='lazy';
     button.append(img,el('span','play','▶'));
     button.addEventListener('click',()=>{

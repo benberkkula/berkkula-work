@@ -62,6 +62,8 @@ function update(){
   document.documentElement.lang=state.lang;
   document.querySelectorAll('[data-i18n]').forEach(e=>e.textContent=T[state.lang][e.dataset.i18n]||'');
   document.getElementById('lang-switch').textContent=state.lang==='en'?'TR':'EN';
+  document.getElementById('lang-switch').setAttribute('aria-label',state.lang==='en'?'TR — Switch to Turkish':'EN — İngilizceye geç');
+  document.querySelector('.discography-filter').setAttribute('aria-label',state.lang==='en'?'Filter by role':'Göreve göre filtrele');
   document.querySelectorAll('[data-filter]').forEach(b=>{const active=b.dataset.filter===state.filter;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});
 
   const root=document.getElementById('recordings-all');root.replaceChildren();
