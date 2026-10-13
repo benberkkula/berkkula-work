@@ -67,6 +67,35 @@ function markCollabLineStarts(){
 }
 function renderCollabs(names,profiles){const root=$('#collab-list');root.replaceChildren();names.forEach(name=>{const item=el('span');item.append(artistSpotifyLink(name,profiles));root.append(item)});requestAnimationFrame(markCollabLineStarts)}
 function renderLatestDate(){const target=$('#latest-mix-date');if(target.dataset.displayDate){target.textContent=target.dataset.displayDate;return}if(target.dataset.iso){const parts=target.dataset.iso.split('-').map(Number);target.textContent=new Intl.DateTimeFormat(locale(),{day:'numeric',month:'long',year:'numeric'}).format(new Date(parts[0],parts[1]-1,parts[2]))}}
+function initLatestMixLoading(){
+  const frame=$('#latest-mix-frame');
+  if(!frame||frame.hasAttribute('src'))return;
+  const load=()=>{
+    if(!frame.dataset.spotifySrc)return;
+    frame.src=frame.dataset.spotifySrc;
+    delete frame.dataset.spotifySrc;
+  };
+  const observe=()=>{
+    if(!('IntersectionObserver' in window)){load();return;}
+    const observer=new IntersectionObserver(entries=>{
+      if(entries.some(entry=>entry.isIntersecting)){
+        load();
+        observer.disconnect();
+      }
+    },{rootMargin:'300px 0px'});
+    observer.observe(frame);
+  };
+  if(window.PerformanceObserver?.supportedEntryTypes?.includes('paint')){
+    if(performance.getEntriesByName('first-contentful-paint').length){observe();return;}
+    const paintObserver=new PerformanceObserver(entries=>{
+      if(entries.getEntries().some(entry=>entry.name==='first-contentful-paint')){
+        paintObserver.disconnect();
+        observe();
+      }
+    });
+    paintObserver.observe({type:'paint',buffered:true});
+  }else requestAnimationFrame(()=>requestAnimationFrame(observe));
+}
 function renderMix(mix){
   state.latestMix=mix;
   $('#latest-mix-title').textContent=mix.title;
@@ -77,7 +106,9 @@ function renderMix(mix){
   if(trackId){
     const frame=$('#latest-mix-frame');
     const src=`https://open.spotify.com/embed/track/${trackId}?utm_source=generator&theme=0`;
-    if(frame.getAttribute('src')!==src)frame.src=src;
+    if(frame.hasAttribute('src')){
+      if(frame.getAttribute('src')!==src)frame.src=src;
+    }else frame.dataset.spotifySrc=src;
     frame.title=`Spotify — ${mix.artist} — ${mix.title}`;
   }
   const titleNode=$('#mix-section-title'), artistNode=$('#mix-section-artist'), linkNode=$('#mix-section-link');
@@ -174,6 +205,7 @@ function normalizedEvent(item){if(!item||!/^\d{4}-\d{2}-\d{2}$/.test(item.date)|
 function renderCalendar(){const {cursor,events}=state;const year=cursor.getFullYear(),month=cursor.getMonth();$('#calendar-month').textContent=new Intl.DateTimeFormat(locale(),{month:'long',year:'numeric'}).format(cursor);const weekdays=$('#weekdays');weekdays.replaceChildren();const monday=new Date(2026,0,5);for(let i=0;i<7;i++){const d=new Date(monday);d.setDate(d.getDate()+i);weekdays.append(el('span','',new Intl.DateTimeFormat(locale(),{weekday:'short'}).format(d)))}const grid=$('#calendar-days');grid.replaceChildren();const offset=(new Date(year,month,1).getDay()+6)%7;const length=new Date(year,month+1,0).getDate();const cellCount=Math.ceil((offset+length)/7)*7;const eventByDate=new Map();events.filter(e=>e.date>=getToday()).forEach(e=>{const ar=eventByDate.get(e.date)||[];ar.push(e);eventByDate.set(e.date,ar)});for(let i=0;i<cellCount;i++){const day=i-offset+1,valid=day>=1&&day<=length,d=new Date(year,month,day),iso=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;const cell=el('div',`calendar-cell${valid?' in-month':''}${iso===getToday()?' today':''}`,String(d.getDate()));if(valid&&eventByDate.has(iso)){const marks=el('div','day-marks');const dayEvents=eventByDate.get(iso);for(const region of ['tr','int'])if(dayEvents.some(x=>x.region===region))marks.append(el('i',region==='int'?'international':''));cell.append(marks);cell.title=dayEvents.map(x=>`${x.artist} — ${x.role}`).join(' / ')}grid.append(cell)}}
 function renderUpcoming(){const upcoming=state.events.filter(e=>e.date>=getToday()).sort((a,b)=>a.date.localeCompare(b.date)||a.artist.localeCompare(b.artist));const visible=upcoming.slice(0,4);$('#shows-count').textContent=String(visible.length).padStart(2,'0');const root=$('#upcoming-shows');root.replaceChildren();if(state.scheduleUnavailable){root.append(el('p','empty-dates',i18n[state.lang].err));return}if(!upcoming.length){root.append(el('p','empty-dates',i18n[state.lang].noConcerts));return}visible.forEach(e=>{const row=el('div',`date-item${e.region==='int'?' abroad':''}`);const d=e.date.split('-').map(Number),time=el('time','',new Intl.DateTimeFormat(locale(),{day:'2-digit',month:'short'}).format(new Date(d[0],d[1]-1,d[2])));time.dateTime=e.date;const details=el('div');const place=el('span','place');place.append(el('span','city',e.city));const remaining=[e.venue,e.country?.toUpperCase()==='TR'?'':e.country].filter(Boolean);if(remaining.length)place.append(document.createTextNode(' · '+remaining.join(' · ')));details.append(el('strong','',e.artist),place);row.append(time,details,el('span','role',e.role||'Live audio'));root.append(row)})}
 async function init(){
+  initLatestMixLoading();
   $('#year').textContent=new Date().getFullYear();
   $('#month-prev').addEventListener('click',()=>{state.cursor=new Date(state.cursor.getFullYear(),state.cursor.getMonth()-1,1);renderCalendar()});
   $('#month-next').addEventListener('click',()=>{state.cursor=new Date(state.cursor.getFullYear(),state.cursor.getMonth()+1,1);renderCalendar()});
