@@ -425,3 +425,6 @@
 /* Latest Mix: Spotify player is immediately visible, within the existing credit card. */
 .latest-mix-player{width:100%;min-width:0;margin-top:auto;padding-top:18px}
 .latest-mix-frame{display:block;width:100%;height:152px;border:0;border-radius:12px;background:#191414}
+
+/* Keep the current page visible in the shared navigation. */
+.nav a[aria-current="page"]{color:var(--ink);text-decoration:underline;text-decoration-color:var(--pink);text-decoration-thickness:2px;text-underline-offset:5px}
