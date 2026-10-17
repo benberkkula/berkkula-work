@@ -108,6 +108,15 @@
       "country": "TR",
       "role": "FOH Engineer",
       "id": "bk-da8940c45d5a"
+    },
+    {
+      "date": "2026-11-02",
+      "artist": "Duman",
+      "city": "Bursa",
+      "country": "TR",
+      "venue": "Açıkhava Tiyatrosu",
+      "role": "FOH Engineer",
+      "id": "bk-391e85ee3334"
     }
   ]
 }
