@@ -85,6 +85,15 @@
   ],
   "recordings": [
     {
+      "id": "ari-barokas-bu-toprak-senin",
+      "year": 2022,
+      "artist": "Ari Barokas",
+      "title": "Bu Toprak Senin",
+      "type": "Album",
+      "role": "Recording & Mixing",
+      "url": "https://open.spotify.com/album/08jxT6Yv5vxThCvsimBU4f"
+    },
+    {
       "id": "evrencan-anadolu-funk-vol-1",
       "year": 2021,
       "artist": "Evrencan Gündüz",
