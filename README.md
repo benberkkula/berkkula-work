@@ -7,7 +7,7 @@ Minimal bilingual (EN/TR) audio engineer portfolio built as a **static site** an
 - Selected live projects and collaborations sourced from Berk Kula's supplied portfolio.
 - Featured latest **Altın Hızma** mix card on the homepage. Spotify playback and the chronological recording/mixing archive live **only on `recordings.html`**, linked from the Album / Mixing card and top navigation.
 - Three YouTube videos: DKTT / Batuhan Aydın & Jülide Özçelik / Pinhani.
-- Monthly event calendar, **pink = Türkiye, blue = international**.
+- Monthly event calendar with permanent artist colors (see the palette below).
 - **Past shows automatically hidden**, never removed from `data/concerts.json`.
 - Event credits include role (`FOH Engineer`, `Monitor Engineer`, etc.).
 - Latest mix updates and video updates through editable JSON, terminal or GitHub issue forms.
@@ -134,3 +134,17 @@ node --check assets/app.js
 ## Initial HTML content
 
 Artist projects, collaborations and recording credits are generated from `data/site.json` by `node scripts/build_static_content.mjs`. Run it after editing that JSON for a local preview; the Pages deployment runs it automatically before publishing. Do not edit the generated `static:*` blocks manually. The existing classes, links and ordering are preserved. Recording filters and language switching progressively enhance the initial list; generated bootstrap data keeps them usable if the JSON request fails.
+
+## Permanent concert calendar palette
+
+Approved by Berk: keep these artist colors for all future concert entries. Colors identify artists, not countries. `assets/app.js` assigns the color automatically from the artist name (including capitalization and Turkish-character variants); unknown artists use pink. The same palette applies to calendar dots, upcoming-show dots, popup details and the legend.
+
+| Artist | Pastel color | CSS value |
+| --- | --- | --- |
+| Duman | Yellow | `#dcc879` |
+| Zeynep Bastık | Sea green | `#9fcbbb` |
+| Kaan Tangöze | Red | `#d99a9a` |
+| Ari Barokas | Blue | `#a8bfd1` (brand blue) |
+| All other artists | Pink | `#d9a8bc` (brand pink) |
+
+Add concerts to `data/concerts.json` as usual; never set colors per concert. Change this mapping only when Berk requests a new palette.
