@@ -444,7 +444,7 @@
 .calendar-tooltip-role{font-size:11px;color:var(--muted)}
 
 /* Permanent artist palette; new calendar entries inherit these colors automatically. */
-:root{--event-duman:#dcc879;--event-zeynep:#9fcbbb;--event-kaan:#d99a9a;--event-ari:var(--blue);--event-other:var(--pink)}
+:root{--event-duman:#dcc879;--event-zeynep:#9fcbbb;--event-kaan:#d99a9a;--event-ari:var(--blue);--event-other:#8f9397}
 .event-color-duman{--event-color:var(--event-duman)}
 .event-color-zeynep{--event-color:var(--event-zeynep)}
 .event-color-kaan{--event-color:var(--event-kaan)}

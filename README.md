@@ -137,7 +137,7 @@ Artist projects, collaborations and recording credits are generated from `data/s
 
 ## Permanent concert calendar palette
 
-Approved by Berk: keep these artist colors for all future concert entries. Colors identify artists, not countries. `assets/app.js` assigns the color automatically from the artist name (including capitalization and Turkish-character variants); unknown artists use pink. The same palette applies to calendar dots, upcoming-show dots, popup details and the legend.
+Approved by Berk: keep these artist colors for all future concert entries. Colors identify artists, not countries. `assets/app.js` assigns the color automatically from the artist name (including capitalization and Turkish-character variants); unknown artists use smoky gray. The same palette applies to calendar dots, upcoming-show dots, popup details and the legend.
 
 | Artist | Pastel color | CSS value |
 | --- | --- | --- |
@@ -145,6 +145,6 @@ Approved by Berk: keep these artist colors for all future concert entries. Color
 | Zeynep Bastık | Sea green | `#9fcbbb` |
 | Kaan Tangöze | Red | `#d99a9a` |
 | Ari Barokas | Blue | `#a8bfd1` (brand blue) |
-| All other artists | Pink | `#d9a8bc` (brand pink) |
+| All other artists | Smoky gray | `#8f9397` |
 
 Add concerts to `data/concerts.json` as usual; never set colors per concert. Change this mapping only when Berk requests a new palette.
