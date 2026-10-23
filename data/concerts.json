@@ -108,6 +108,51 @@
       "country": "TR",
       "role": "FOH Engineer",
       "id": "bk-da8940c45d5a"
+    },
+    {
+      "date": "2026-11-06",
+      "artist": "Zeynep Bastık",
+      "city": "Antalya",
+      "country": "TR",
+      "venue": "Özel İş",
+      "role": "Monitor Engineer",
+      "id": "bk-29808edff9cc"
+    },
+    {
+      "date": "2026-11-07",
+      "artist": "Ari Barokas",
+      "city": "Ankara",
+      "country": "TR",
+      "venue": "Holly Stone",
+      "role": "FOH Engineer",
+      "id": "bk-bc2ff099fa07"
+    },
+    {
+      "date": "2026-11-14",
+      "artist": "Duman",
+      "city": "Bakü",
+      "country": "AZ",
+      "venue": "İdman Sarayı",
+      "role": "FOH Engineer",
+      "id": "bk-0360b1b55806"
+    },
+    {
+      "date": "2026-11-20",
+      "artist": "Kaan Tangöze",
+      "city": "Istanbul",
+      "country": "TR",
+      "venue": "Blind",
+      "role": "FOH Engineer",
+      "id": "bk-4beaa3f2fcc2"
+    },
+    {
+      "date": "2026-11-28",
+      "artist": "Duman",
+      "city": "Istanbul",
+      "country": "TR",
+      "venue": "Jolly Joker Arena",
+      "role": "FOH Engineer",
+      "id": "bk-7ca4f5348544"
     }
   ]
 }
