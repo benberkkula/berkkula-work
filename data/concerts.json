@@ -153,6 +153,60 @@
       "venue": "Jolly Joker Arena",
       "role": "FOH Engineer",
       "id": "bk-7ca4f5348544"
+    },
+    {
+      "date": "2026-12-05",
+      "artist": "Duman",
+      "city": "İzmir",
+      "country": "TR",
+      "venue": "Swiss Otel Christmas Market",
+      "role": "FOH Engineer",
+      "id": "bk-718c177c04bc"
+    },
+    {
+      "date": "2026-12-09",
+      "artist": "Kaan Tangöze",
+      "city": "Ankara",
+      "country": "TR",
+      "venue": "Sold Out Concert Hall",
+      "role": "FOH Engineer",
+      "id": "bk-b6a18bbd3700"
+    },
+    {
+      "date": "2026-12-11",
+      "artist": "Ari Barokas",
+      "city": "Antalya",
+      "country": "TR",
+      "venue": "Holly Stone",
+      "role": "FOH Engineer",
+      "id": "bk-93c2824c44dd"
+    },
+    {
+      "date": "2026-12-17",
+      "artist": "Kaan Tangöze",
+      "city": "Tekirdağ",
+      "country": "TR",
+      "venue": "Çorlu Kültür Merkezi",
+      "role": "FOH Engineer",
+      "id": "bk-b3a759b63857"
+    },
+    {
+      "date": "2026-12-20",
+      "artist": "Duman",
+      "city": "İstanbul",
+      "country": "TR",
+      "venue": "Volkswagen Arena",
+      "role": "FOH Engineer",
+      "id": "bk-fd14831566a1"
+    },
+    {
+      "date": "2026-12-27",
+      "artist": "Duman",
+      "city": "İstanbul",
+      "country": "TR",
+      "venue": "Ataköy Marina Christmas Market",
+      "role": "FOH Engineer",
+      "id": "bk-be719ca76991"
     }
   ]
 }
