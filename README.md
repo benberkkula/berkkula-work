@@ -148,3 +148,7 @@ Approved by Berk: keep these artist colors for all future concert entries. Color
 | All other artists | Smoky gray | `#8f9397` |
 
 Add concerts to `data/concerts.json` as usual; never set colors per concert. Change this mapping only when Berk requests a new palette.
+
+## Multi-day sessions
+
+Calendar entries may include an inclusive `endDate` (YYYY-MM-DD). They appear on every remaining day of the range and as one upcoming entry until the end date has passed. Use the original artist name for its color and `eventType: "recording"` to show the localized album-recording label. Single-day concerts continue to use only `date`.

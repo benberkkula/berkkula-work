@@ -216,6 +216,17 @@
       "venue": "Komünite",
       "role": "FOH Engineer",
       "id": "bk-5f7745fe5053"
+    },
+    {
+      "date": "2027-02-07",
+      "endDate": "2027-02-19",
+      "artist": "Ari Barokas",
+      "eventType": "recording",
+      "city": "Balıkesir",
+      "country": "TR",
+      "venue": "Pür Cunda",
+      "role": "Recording Engineer",
+      "id": "bk-50017dc95239"
     }
   ]
 }

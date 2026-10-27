@@ -454,3 +454,6 @@
 .calendar-legend .key-dot,.day-marks i,.date-item .place:before,.date-item.abroad .place:before{background:var(--event-color,var(--pink))}
 .calendar-tooltip-event strong:before{content:"";display:inline-block;width:7px;height:7px;margin-right:8px;border-radius:50%;background:var(--event-color,var(--pink));vertical-align:1px}
 @media(max-width:620px){.calendar-legend{justify-content:flex-start;gap:12px 18px}}
+
+/* Multi-day work remains one upcoming entry; its date can wrap on small screens. */
+.date-item time.date-range{white-space:normal;line-height:1.4}

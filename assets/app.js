@@ -10,7 +10,7 @@ const i18n={
     mixesTitle:'Mixes',mixesIntro:'Latest mix on Spotify, followed by a dated selection of earlier recording and mixing work.',mixPlayerLabel:'CURRENT MIX SPOTLIGHT',openMix:'Watch on YouTube ↗',mixUpdateTitle:'IN THE ARCHIVE',mixUpdateBody:'Albums, singles and live recordings, organized by release year.',docLinksTitle:'DOCUMENTS',audioFallback:'Listen on Spotify. Playback availability depends on Spotify.',playLatest:'Play latest mix',
     archiveEyebrow:'RECENT & EARLIER WORK',archiveTitle:'Recording & mixing archive',allRecordings:'Full discography ↗',
     videosTitle:'Selected works',videosIntro:'Three selected live recording & mixing works.',
-    datesTitle:'Upcoming dates',datesIntro:'Live schedule.',turkey:'Turkey',international:'International',otherArtists:'Other',scheduledShows:'NEXT PERFORMANCES',noConcerts:'New performance dates will be announced here.',
+    albumRecording:'Album recording',datesTitle:'Upcoming dates',datesIntro:'Live schedule.',turkey:'Turkey',international:'International',otherArtists:'Other',scheduledShows:'NEXT PERFORMANCES',noConcerts:'New performance dates will be announced here.',
     aboutTitle:'About',aboutLead:'Independent audio engineer working across live performance, studio recording and mixing since 2007.',aboutLiveTitle:'Live Sound Engineering',aboutLiveText:'FOH and monitor engineering for concerts, tours and festivals.',aboutMixTitle:'Mixing',aboutMixText:'Professional mixing services from my private mixing suite.',aboutStudioTitle:'Studio Recording',aboutStudioText:'Recording sessions and music productions at various professional studios.',writeMe:'Get in touch ↗',
     loadSpotify:'Load Spotify player ↗',spotifyPreviewLabel:'SPOTIFY AUDIO',err:'Schedule temporarily unavailable. Please check again later.'
   },
@@ -22,7 +22,7 @@ const i18n={
     mixesTitle:'Miksler',mixesIntro:'Spotify’da son miks; altında tarihli eski kayıt ve miks çalışmaları.',mixPlayerLabel:'GÜNCEL MİKS SPOTU',openMix:'YouTube’da izle ↗',mixUpdateTitle:'ARŞİVDE',mixUpdateBody:'Albümler, tekliler ve canlı kayıtlar yayın yılına göre sıralanır.',docLinksTitle:'DOKÜMANLAR',audioFallback:'Spotify’da dinle. Tam oynatma için Spotify gerekebilir.',playLatest:'Son miksi oynat',
     archiveEyebrow:'YENİ & ESKİ ÇALIŞMALAR',archiveTitle:'Kayıt ve miks arşivi',allRecordings:'Tüm diskografi ↗',
     videosTitle:'Seçili çalışmalar',videosIntro:'Seçili üç canlı kayıt ve miks çalışması.',
-    datesTitle:'Yaklaşan konserler',datesIntro:'Konser takvimi.',turkey:'Türkiye',international:'Yurtdışı',otherArtists:'Diğer',scheduledShows:'SIRADAKİ KONSERLER',noConcerts:'Yeni konser tarihleri burada yayınlanacak.',
+    albumRecording:'Albüm kaydı',datesTitle:'Yaklaşan konserler',datesIntro:'Konser takvimi.',turkey:'Türkiye',international:'Yurtdışı',otherArtists:'Diğer',scheduledShows:'SIRADAKİ KONSERLER',noConcerts:'Yeni konser tarihleri burada yayınlanacak.',
     aboutTitle:'Hakkında',aboutLead:'2007’den bu yana canlı ses, stüdyo kaydı ve miks alanlarında çalışan bağımsız ses mühendisi.',aboutLiveTitle:'Canlı Ses Mühendisliği',aboutLiveText:'Konser, turne ve festivallerde FOH ve monitör ses mühendisliği.',aboutMixTitle:'Miks',aboutMixText:'Kendi özel miks stüdyomda profesyonel miks hizmetleri.',aboutStudioTitle:'Stüdyo Kaydı',aboutStudioText:'Farklı profesyonel stüdyolarda kayıt seansları ve müzik prodüksiyonları.',writeMe:'İletişime geç ↗',
     loadSpotify:'Spotify oynatıcıyı aç ↗',spotifyPreviewLabel:'SPOTIFY SES',err:'Takvim geçici olarak yüklenemedi. Lütfen daha sonra tekrar deneyin.'
   }
@@ -208,7 +208,18 @@ function eventArtistColorKey(event){
   return CONCERT_ARTIST_COLORS[name]||'other';
 }
 function applyEventColor(node,event){node.classList.add(`event-color-${eventArtistColorKey(event)}`)}
-function normalizedEvent(item){if(!item||!/^\d{4}-\d{2}-\d{2}$/.test(item.date)||typeof item.artist!=='string'||!item.artist.trim())return null;return {...item,region:item.country?.toUpperCase()==='TR'?'tr':'int'}}
+function eventEndDate(event){return event.endDate||event.date}
+function eventLabel(event){return event.eventType==='recording'?`${event.artist} — ${i18n[state.lang].albumRecording}`:event.artist}
+function eventDateRange(event,full=false){
+  const localDate=value=>{const [y,m,d]=value.split('-').map(Number);return new Date(y,m-1,d)};
+  const formatter=new Intl.DateTimeFormat(locale(),{day:full?'numeric':'2-digit',month:full?'long':'short',...(full?{year:'numeric'}:{})});
+  return event.endDate&&event.endDate!==event.date?formatter.formatRange(localDate(event.date),localDate(event.endDate)):formatter.format(localDate(event.date));
+}
+function normalizedEvent(item){
+  if(!item||!/^\d{4}-\d{2}-\d{2}$/.test(item.date)||typeof item.artist!=='string'||!item.artist.trim())return null;
+  if(item.endDate&&(!/^\d{4}-\d{2}-\d{2}$/.test(item.endDate)||item.endDate<item.date))return null;
+  return {...item,region:item.country?.toUpperCase()==='TR'?'tr':'int'};
+}
 // One shared, text-only tooltip for hover, keyboard focus and touch.
 let calendarPopup=null,calendarPopupAnchor=null,calendarPopupMode='',calendarPopupTimer=null;
 let calendarPointerFocus=false;
@@ -244,7 +255,8 @@ function showCalendarPopup(anchor,dayEvents,iso,mode){
   calendarPopup.append(el('div','calendar-tooltip-date',new Intl.DateTimeFormat(locale(),{day:'numeric',month:'long',year:'numeric'}).format(new Date(year,month-1,day))));
   for(const event of dayEvents){
     const item=el('div','calendar-tooltip-event');applyEventColor(item,event);
-    item.append(el('strong','',event.artist),el('span','calendar-tooltip-place',[event.city,event.venue].filter(Boolean).join(' · ')),el('span','calendar-tooltip-role',event.role||'Live audio'));
+    item.append(el('strong','',eventLabel(event)),el('span','calendar-tooltip-place',[event.city,event.venue].filter(Boolean).join(' · ')),el('span','calendar-tooltip-role',event.role||'Live audio'));
+    if(event.endDate&&event.endDate!==event.date)item.append(el('span','calendar-tooltip-role',eventDateRange(event,true)));
     calendarPopup.append(item);
   }
   calendarPopup.hidden=false;
@@ -278,7 +290,13 @@ function renderCalendar(){
   const grid=$('#calendar-days');grid.replaceChildren();
   const offset=(new Date(year,month,1).getDay()+6)%7,length=new Date(year,month+1,0).getDate();
   const cellCount=Math.ceil((offset+length)/7)*7,eventByDate=new Map();
-  events.filter(e=>e.date>=getToday()).forEach(e=>{const ar=eventByDate.get(e.date)||[];ar.push(e);eventByDate.set(e.date,ar)});
+  const today=getToday();
+  for(let day=1;day<=length;day++){
+    const iso=`${year}-${String(month+1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+    if(iso<today)continue;
+    const dayEvents=events.filter(event=>event.date<=iso&&eventEndDate(event)>=iso);
+    if(dayEvents.length)eventByDate.set(iso,dayEvents);
+  }
   for(let i=0;i<cellCount;i++){
     const day=i-offset+1,valid=day>=1&&day<=length,d=new Date(year,month,day);
     const iso=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
@@ -287,7 +305,7 @@ function renderCalendar(){
     if(dayEvents){
       cell.type='button';cell.dataset.date=iso;
       cell.setAttribute('aria-expanded','false');cell.setAttribute('aria-controls','calendar-event-tooltip');
-      cell.setAttribute('aria-label',new Intl.DateTimeFormat(locale(),{day:'numeric',month:'long',year:'numeric'}).format(d)+': '+dayEvents.map(e=>e.artist).join(', '));
+      cell.setAttribute('aria-label',new Intl.DateTimeFormat(locale(),{day:'numeric',month:'long',year:'numeric'}).format(d)+': '+dayEvents.map(eventLabel).join(', '));
       const marks=el('div','day-marks');marks.setAttribute('aria-hidden','true');
       for(const colorKey of new Set(dayEvents.map(eventArtistColorKey)))marks.append(el('i',`event-color-${colorKey}`));
       cell.append(marks);
@@ -304,7 +322,7 @@ function renderCalendar(){
     grid.append(cell);
   }
 }
-function renderUpcoming(){const upcoming=state.events.filter(e=>e.date>=getToday()).sort((a,b)=>a.date.localeCompare(b.date)||a.artist.localeCompare(b.artist));const visible=upcoming.slice(0,4);$('#shows-count').textContent=String(visible.length).padStart(2,'0');const root=$('#upcoming-shows');root.replaceChildren();if(state.scheduleUnavailable){root.append(el('p','empty-dates',i18n[state.lang].err));return}if(!upcoming.length){root.append(el('p','empty-dates',i18n[state.lang].noConcerts));return}visible.forEach(e=>{const row=el('div',`date-item${e.region==='int'?' abroad':''}`);applyEventColor(row,e);const d=e.date.split('-').map(Number),time=el('time','',new Intl.DateTimeFormat(locale(),{day:'2-digit',month:'short'}).format(new Date(d[0],d[1]-1,d[2])));time.dateTime=e.date;const details=el('div');const place=el('span','place');place.append(el('span','city',e.city));const remaining=[e.venue,e.country?.toUpperCase()==='TR'?'':e.country].filter(Boolean);if(remaining.length)place.append(document.createTextNode(' · '+remaining.join(' · ')));details.append(el('strong','',e.artist),place);row.append(time,details,el('span','role',e.role||'Live audio'));root.append(row)})}
+function renderUpcoming(){const upcoming=state.events.filter(e=>eventEndDate(e)>=getToday()).sort((a,b)=>a.date.localeCompare(b.date)||a.artist.localeCompare(b.artist));const visible=upcoming.slice(0,4);$('#shows-count').textContent=String(visible.length).padStart(2,'0');const root=$('#upcoming-shows');root.replaceChildren();if(state.scheduleUnavailable){root.append(el('p','empty-dates',i18n[state.lang].err));return}if(!upcoming.length){root.append(el('p','empty-dates',i18n[state.lang].noConcerts));return}visible.forEach(e=>{const row=el('div',`date-item${e.region==='int'?' abroad':''}`);applyEventColor(row,e);const time=el('time',e.endDate&&e.endDate!==e.date?'date-range':'',eventDateRange(e));time.dateTime=e.date;if(e.endDate){time.dataset.endDate=e.endDate;time.setAttribute('aria-label',eventDateRange(e,true))}const details=el('div');const place=el('span','place');place.append(el('span','city',e.city));const remaining=[e.venue,e.country?.toUpperCase()==='TR'?'':e.country].filter(Boolean);if(remaining.length)place.append(document.createTextNode(' · '+remaining.join(' · ')));details.append(el('strong','',eventLabel(e)),place);row.append(time,details,el('span','role',e.role||'Live audio'));root.append(row)})}
 async function init(){
   initCalendarPopup();
   initLatestMixLoading();
