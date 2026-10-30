@@ -66,6 +66,12 @@
   ],
   "videos": [
     {
+      "title": "Ah Bir Ataş Ver (Pür Cunda Live Sessions)",
+      "artist": "Duman",
+      "type": "Recording Engineer",
+      "videoId": "r-qFqbUvgzE"
+    },
+    {
       "title": "Sorma",
       "artist": "Kaan Tangöze",
       "type": "Recording / mixing",
@@ -76,12 +82,6 @@
       "artist": "Dolu Kadehi Ters Tut",
       "type": "Mixing",
       "videoId": "87Yj3G9kWgg"
-    },
-    {
-      "title": "Ah Bir Ataş Ver (Pür Cunda Live Sessions)",
-      "artist": "Duman",
-      "type": "Recording Engineer",
-      "videoId": "r-qFqbUvgzE"
     }
   ],
   "recordings": [
