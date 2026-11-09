@@ -209,6 +209,15 @@
       "venue": "Pür Cunda",
       "role": "Recording Engineer",
       "id": "bk-50017dc95239"
+    },
+    {
+      "date": "2026-11-19",
+      "artist": "Isaiah Collier",
+      "city": "İstanbul",
+      "country": "TR",
+      "venue": "Komünite",
+      "role": "FOH Engineer",
+      "id": "bk-isaiah-collier-20261119"
     }
   ]
 }
